@@ -1,0 +1,32 @@
+# At fist stop ROS Master if working on host
+
+# Quick Start for localization:
+# $ docker-compose -f compose.rosbot.control.yaml -f compose.rosbot.hardware.yaml -f compose.rosbot.localization.yaml -f compose.rosbot.lan.yaml up
+
+version: '2.3'
+
+services:
+
+  navigation:
+    image: husarion/navigation2:galactic
+    container_name: nav2-stack
+    restart: unless-stopped
+    volumes:
+      - ./config/nav2_params.yaml:/nav2_params.yaml
+    command: >
+      ros2 launch nav2_bringup navigation_launch.py    
+        params_file:=/nav2_params.yaml
+        use_sim_time:=${USE_SIM_TIME}
+
+  localization-mapping:
+    image: husarion/navigation2:galactic
+    container_name: amcl
+    restart: unless-stopped
+    volumes:
+      - ./config/amcl_params.yaml:/amcl_params.yaml
+      - ./maps:/maps
+    command: >
+      ros2 launch nav2_bringup localization_launch.py    
+        params_file:=/amcl_params.yaml
+        map:=/maps/map.yaml
+        use_sim_time:=${USE_SIM_TIME}

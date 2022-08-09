@@ -1,0 +1,23 @@
+FROM ros:galactic
+
+SHELL ["/bin/bash", "-c"]
+
+WORKDIR /app
+
+COPY . ./
+
+RUN sudo apt update && \
+    source /opt/ros/$ROS_DISTRO/setup.bash && \
+    echo "================== COLCON BUILD (rosbot) ======================" && \
+    sudo apt install -y ros-$ROS_DISTRO-nav2-simple-commander && \
+    cd husarion_ws && \
+    echo "================== COLCON BUILD (rosbot) ======================" && \
+    colcon build --packages-select my_rosbot_pkg --symlink-install && \
+    source /opt/ros/$ROS_DISTRO/setup.bash && \
+    echo "source /app/husarion_ws/install/setup.bash">>~/.bashrc
+
+COPY docker_stuff_rosbot/ros_entrypoint.sh /
+
+ENTRYPOINT [ "/ros_entrypoint.sh" ]
+
+CMD ["bash"]

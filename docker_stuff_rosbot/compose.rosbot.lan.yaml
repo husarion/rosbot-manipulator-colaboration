@@ -1,0 +1,54 @@
+# At fist stop ROS Master if working on host
+
+# Quick Start for mapping: (at fist stop ROS Master if working on host)
+# $ docker-compose -f compose.rosbot.hardware.yaml -f compose.rosbot.mapping.yaml -f compose.rosbot.lan.yaml up
+
+# Quick Start for localization:
+# $ docker-compose -f compose.rosbot.control.yaml -f compose.rosbot.hardware.yaml -f compose.rosbot.localization.yaml -f compose.rosbot.lan.yaml up
+
+version: '2.3'
+
+services:
+
+  localization-mapping:
+    network_mode: host
+    ipc: host
+    environment:
+      - ROS_DOMAIN_ID
+      - RMW_IMPLEMENTATION
+
+  navigation:
+    network_mode: host
+    ipc: host
+    environment:
+      - ROS_DOMAIN_ID
+      - RMW_IMPLEMENTATION
+
+  rplidar:
+    network_mode: host
+    ipc: host
+    environment:
+      - ROS_DOMAIN_ID
+      - RMW_IMPLEMENTATION
+
+  bridge:
+    network_mode: host
+    ipc: host
+    environment:
+      - ROS_IP=127.0.0.1
+      - ROS_MASTER_URI=http://127.0.0.1:11311
+      - ROS_DOMAIN_ID
+      - RMW_IMPLEMENTATION
+
+  ros-master:
+    network_mode: host
+    ipc: host
+    environment:
+      - ROS_IP=127.0.0.1
+
+  rosbot:
+    network_mode: host
+    ipc: host
+    environment:
+      - ROS_IP=127.0.0.1
+      - ROS_MASTER_URI=http://127.0.0.1:11311

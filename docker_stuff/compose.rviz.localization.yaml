@@ -1,0 +1,16 @@
+# Quick Start for localization:
+# $ xhost local:root
+# $ docker compose -f compose.main.yaml -f compose.rviz.localization.yaml -f compose.rviz.lan.yaml up
+
+services:
+
+  rviz:
+    image: husarion/rviz2:galactic
+    container_name: rviz
+    restart: on-failure
+    volumes:
+      - /tmp/.X11-unix:/tmp/.X11-unix:rw
+      - ./config/rosbot_localization.rviz:/root/.rviz2/default.rviz
+    environment:
+      - DISPLAY
+      - LIBGL_ALWAYS_SOFTWARE=1

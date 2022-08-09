@@ -1,0 +1,20 @@
+# At fist stop ROS Master if working on host
+
+# Quick Start for localization:
+# $ docker-compose -f compose.rosbot.control.yaml -f compose.rosbot.hardware.yaml -f compose.rosbot.localization.yaml -f compose.rosbot.lan.yaml up
+
+version: '2.3'
+
+services:
+
+  rosbot-control:
+    build:
+      context: ../
+      dockerfile: docker_stuff_rosbot/Dockerfile.rosbot
+    network_mode: host
+    ipc: host
+    environment:
+      - ROS_DOMAIN_ID
+    volumes:
+      - /home/husarion/husarion_ws/src/my_rosbot_pkg:/app/husarion_ws/src/my_rosbot_pkg
+    command: ros2 run my_rosbot_pkg rosbot_control

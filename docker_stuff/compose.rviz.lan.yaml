@@ -1,0 +1,16 @@
+# Quick Start for mapping:
+# $ xhost local:root
+# $ docker compose -f compose.rviz.mapping.yaml -f compose.rviz.lan.yaml up
+
+# Quick Start for localization:
+# $ xhost local:root
+# $ docker compose -f compose.main.yaml -f compose.rviz.localization.yaml -f compose.rviz.lan.yaml up
+
+services:
+
+  rviz:
+    network_mode: host
+    ipc: host
+    environment:
+      - ROS_DOMAIN_ID
+      - RMW_IMPLEMENTATION

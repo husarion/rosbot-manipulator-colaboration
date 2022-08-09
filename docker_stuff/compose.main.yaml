@@ -1,0 +1,64 @@
+# Quick Start for localization:
+# $ xhost local:root
+# $ docker compose -f compose.main.yaml -f compose.rviz.localization.yaml -f compose.rviz.lan.yaml up
+
+services:
+
+  controller:
+    build:
+      context: ../
+      dockerfile: docker_stuff/Dockerfile.controller
+    network_mode: host
+    ipc: host
+    environment:
+      - ROS_DOMAIN_ID
+    devices:
+      - "/dev/ttyUSB0:/dev/ttyUSB0"
+    command: ros2 launch open_manipulator_x_controller open_manipulator_x_controller.launch.py baud_rate:=115200  # baud_rate:=57600 or none (default 1Mb)
+  
+  grabber:
+    build:
+      context: ../
+      dockerfile: docker_stuff/Dockerfile.grabber
+    network_mode: host
+    ipc: host
+    environment:
+      - ROS_DOMAIN_ID
+    volumes:
+      - /home/zr/Husarion/ros2_ws/src/open_manip:/app/ros2_ws/src/open_manip
+    depends_on:
+      - controller
+    command: ros2 run open_manip grabber_from_image_cords
+  
+  realsense:
+    privileged: true # try to replace that in future
+    build:
+      context: ../
+      dockerfile: docker_stuff/Dockerfile.realsense
+    network_mode: host
+    ipc: host
+    volumes:
+      - /home/zr/Husarion/ros2_ws/src/open_cv_pkg:/app/ros2_ws/src/open_cv_pkg
+    devices:
+      - /dev:/dev
+    environment:
+      - DISPLAY
+      - ROS_DOMAIN_ID
+    depends_on:
+      - controller
+    command: ros2 run realsense2_camera realsense2_camera_node --ros-args -p filters:=colorizer
+  
+  opencv:
+    privileged: true  # try to replace that in future
+    build:
+      context: ../
+      dockerfile: docker_stuff/Dockerfile.opencv
+    network_mode: host
+    ipc: host
+    environment:
+      - ROS_DOMAIN_ID
+    volumes:
+      - /home/zr/Husarion/ros2_ws/src/open_cv_pkg:/app/ros2_ws/src/open_cv_pkg
+    command: ros2 run open_cv_pkg tracker
+    depends_on:
+      - realsense

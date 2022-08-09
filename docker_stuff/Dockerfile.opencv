@@ -1,0 +1,29 @@
+# can be optimized
+
+FROM osrf/ros:foxy-desktop
+
+SHELL ["/bin/bash", "-c"]
+
+WORKDIR /app
+
+COPY . ./
+
+RUN sudo apt update && \
+    source /opt/ros/foxy/setup.bash && \
+    echo "================== INSTALL REALSENSE2_CAMERA (opencv) ======================" && \
+    sudo apt-get install -y ros-foxy-realsense2-camera && \
+    echo "================== INSTALL OpenCV (opencv) ======================" && \
+    sudo apt install -y libopencv-dev python3-opencv && \
+    echo "================== INSTALL tkinter (opencv) ======================" && \
+    sudo apt-get install -y python3-tk && \
+    echo "================== COLCON BUILD (opencv) ======================" && \
+    cd ros2_ws && \
+    colcon build --packages-select open_cv_pkg --symlink-install && \
+    source /app/ros2_ws/install/setup.bash && \
+    echo "source /app/ros2_ws/install/setup.bash">>~/.bashrc
+
+COPY docker_stuff/ros_entrypoint.sh /
+
+ENTRYPOINT [ "/ros_entrypoint.sh" ]
+
+CMD ["bash"]
