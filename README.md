@@ -9,7 +9,7 @@ In most of industrial cases, application of mobile and manipulation robots signi
 Sometimes a combination of the advantages of transport robots and robotic arms is needed to acheive a given goal.
 This project, based on ROS2, shows an example of cooperation between the ROSbot 2.0 PRO mobile robot and a stationary stand copmosed of the OpenMANIPULATOR-X robotic arm and the Intel Realsense D435 depth camera. The software layer cosists of 3 Python nodes (`/grabber_from_image_cords`, `tracker` and `rosbot_control`), which are discribed in [ROS Description](https://husarion.com/tutorials/ros-projects/rosbot-manipulator-colaboration/#ros-description) section. 
 
-![rosbot_with_plate](/img/ros-projects/rosbot-manipulator-colaboration/rosbot_with_plate.jpg)
+![rosbot_with_plate](rosbot_with_plate.jpg)
 
 ## Description
 As said in the abstract above, this project is an application based on the cooperation of [ROSbot 2.0 PRO](https://store.husarion.com/products/rosbot-pro), [OpenMANIPULATOR-X](https://emanual.robotis.com/docs/en/platform/openmanipulator_x/overview/) and [Intel Realsense D435](https://www.intelrealsense.com/depth-camera-d435/).
@@ -51,7 +51,7 @@ Topic | Message type | Publisher node name | Description
 
 System schematic diagram:
 
-![diagram](/img/ros-projects/rosbot-manipulator-colaboration/schematic.png)
+![diagram](schematic.png)
 '*' More about topics published by ROSbot to rviz You can fine [here](https://github.com/husarion/rosbot-docker#publishes)
 
 
@@ -104,7 +104,7 @@ Your map is now saved in the 'maps/' folder!
 Now transfer the maps folder to your laptop using for example [sftp](https://linuxize.com/post/how-to-use-linux-sftp-command-to-transfer-files/) (e.g. sftp husarion@192.168.8.191)
 
 Example result of the map:
-![map](/img/ros-projects/rosbot-manipulator-colaboration/map.png)
+![map](map.png)
 
 ### Launching project
 
@@ -122,11 +122,11 @@ docker-compose -f compose.rosbot.control.yaml -f compose.rosbot.hardware.yaml -f
 
 Setup the hardware for example like this:
 
-![setup](/img/ros-projects/rosbot-manipulator-colaboration/setup.jpg)
+![setup](setup.jpg)
 
 In addition, you can add some obstacles or build small maze:
 
-![maze](/img/ros-projects/rosbot-manipulator-colaboration/maze.jpg)
+![maze](maze.jpg)
 
 Set your ROSbot on the starting point and put objects on its plate. Now, using `Publish Point` on Rviz chose starting point and destination point on the loaded map. Everything should look like in previously linked video:
 
@@ -145,4 +145,4 @@ Every time you stop and rester the project first you need to unplug and plug USB
 There are [some positions](https://github.com/ROBOTIS-GIT/open_manipulator/pull/46) of robotic arm which exceed its joint's limits.
 Try to launch project with the initial pose like this:
 
-![manip_initial_pose_example](/img/ros-projects/rosbot-manipulator-colaboration/manip_initial_pose_example.jpg)
+![manip_initial_pose_example](manip_initial_pose_example.jpg)
