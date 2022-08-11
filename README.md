@@ -7,7 +7,7 @@ title: 5. Rosbot manipulator colaboration
 ## Abstract
 In most of industrial cases, application of mobile and manipulation robots significantly speeds up and improves a given process.
 Sometimes a combination of the advantages of transport robots and robotic arms is needed to acheive a given goal.
-This project, based on ROS2, shows an example of cooperation between the ROSbot 2.0 PRO mobile robot and a stationary stand copmosed of the OpenMANIPULATOR-X robotic arm and the Intel Realsense D435 depth camera. The software layer cosists of 3 Python nodes (`/grabber_from_image_cords`, `tracker` and `rosbot_control`), which are discribed in [ROS Description](https://husarion.com/tutorials/ros-projects/rosbot-manipulator-colaboration/#ros-description) section. 
+This project, based on ROS2, shows an example of cooperation between the ROSbot 2.0 PRO mobile robot and a stationary stand copmosed of the OpenMANIPULATOR-X robotic arm and the Intel Realsense D435 depth camera. The software layer cosists of 3 Python nodes (`/grabber_from_image_cords`, `tracker` and `rosbot_control`), which are discribed in [ROS Description](https://github.com/husarion/rosbot-manipulator-colaboration#ros-description) section. 
 
 ![rosbot_with_plate](rosbot_with_plate.jpg)
 
@@ -32,9 +32,9 @@ The final effect of this project can be seen in the video below.
 * System counts collected objects
 
 ### ROS Description
-OpenMANIPULATOR launch file offers [a lot of services](https://emanual.robotis.com/docs/en/platform/openmanipulator_x/ros_controller_msg/#topic). This project (specifically `/grabber_from_image_cords` node) uses some of these to control the manipulator: `/goal_task_space_path`, `/goal_joint_space_path`, `/goal_tool_control`.
+OpenMANIPULATOR launch file offers [a lot of services](https://emanual.robotis.com/docs/en/platform/openmanipulator_x/ros_controller_msg/#service). This project (specifically `/grabber_from_image_cords` node) uses some of these to control the manipulator: `/goal_task_space_path`, `/goal_joint_space_path`, `/goal_tool_control`.
 
-The realsense node `/realsense2_camera_node` publishes [a lot of topics](https://github.com/IntelRealSense/realsense-ros/tree/ros2). This project (specifically `/tracker` node) uses only two: `/color/image_raw` and `/depth/image_rect_raw`.
+The realsense node `/realsense2_camera_node` publishes [a lot of topics](https://github.com/IntelRealSense/realsense-ros/tree/ros2#published-topics). This project (specifically `/tracker` node) uses only two: `/color/image_raw` and `/depth/image_rect_raw`.
 
 Rviz2 software shares the feature of publishing data about the point, clicked on the displayed map, on topic: `/clicked_point`. Node `rosbot_control` subscribes to that topic.
 
@@ -59,7 +59,7 @@ System schematic diagram:
 
 ### Hardware setup
 
-Setup the hardware for example like on photo below. First, set up the tripod (or other similar equipment) with the depth camera pointing directly downwards. Then place the manipulator on a stable base on the ground. It is VERY IMPORTANT that the origin of the manipulator's coordinate system (middle of base of the first servo, [the first TF from the ground](https://emanual.robotis.com/docs/en/platform/openmanipulator_x/ros_controller_check_setting/#rviz)) is in the middle of the uppor border of the color image from the camera. It must be manually precisely set at a later stage of the project, immediately when the color image is displayed.
+Setup the hardware for example like on photo below. First, set up the tripod (or other similar equipment) with the depth camera pointing directly downwards. Then place the manipulator on a stable base on the ground. It is VERY IMPORTANT that the origin of the manipulator's coordinate system (middle of base of the first servo, [the first TF from the ground](https://emanual.robotis.com/assets/images/platform/openmanipulator_x/OpenManipulator_rviz.png)) is in the middle of the uppor border of the color image from the camera. It must be manually precisely set at a later stage of the project, immediately when the color image is displayed.
 
 ![setup](setup.jpg)
 
@@ -83,7 +83,7 @@ mkdir rosbot_manipulator_colaboration
 git clone https://github.com/husarion/rosbot-manipulator-colaboration.git rosbot_manipulator_colaboration
 ```
 
-This project is divided into 2 stages: [mapping](https://husarion.com/tutorials/ros-projects/rosbot-manipulator-colaboration/#mapping) and [launching the main project](https://husarion.com/tutorials/ros-projects/rosbot-manipulator-colaboration/#launching-the-main-project).
+This project is divided into 2 stages: [mapping](https://github.com/husarion/rosbot-manipulator-colaboration#mapping) and [launching the main project](https://github.com/husarion/rosbot-manipulator-colaboration#launching-the-main-project).
 
 ### Mapping
 
@@ -117,6 +117,7 @@ Your map is now saved in the 'maps/' folder!
 Now transfer the maps folder to your laptop using for example [sftp](https://linuxize.com/post/how-to-use-linux-sftp-command-to-transfer-files/) (e.g. sftp husarion@192.168.8.191)
 
 Example result of the map:
+
 ![map](map.png)
 
 ### Launching the main project
