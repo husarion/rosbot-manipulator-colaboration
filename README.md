@@ -55,7 +55,18 @@ System schematic diagram:
 '*' More about topics published by ROSbot to rviz You can fine [here](https://github.com/husarion/rosbot-docker#publishes)
 
 
-## Building the project
+## Launching the project
+
+### Hardware setup
+
+Setup the hardware for example like on photo below. First, set up the tripod (or other similar equipment) with the depth camera pointing directly downwards. Then place the manipulator on a stable base on the ground. It is VERY IMPORTANT that the origin of the manipulator's coordinate system (middle of base of the first servo, [the first TF from the ground](https://emanual.robotis.com/docs/en/platform/openmanipulator_x/ros_controller_check_setting/#rviz)) is in the middle of the uppor border of the color image from the camera. It must be manually precisely set at a later stage of the project, immediately when the color image is displayed.
+
+![setup](setup.jpg)
+
+In addition, you can add some obstacles or build small maze:
+
+![maze](maze.jpg)
+
 ### Docker installation
 Whole system runs on Docker Compose to make it as easy as possible to launch on different devices. To install Docker please refer to [Docker installation manual](https://docs.docker.com/engine/install/ubuntu/)
 
@@ -71,6 +82,8 @@ Create new foler and clone this repository:
 mkdir rosbot_manipulator_colaboration
 git clone https://github.com/husarion/rosbot-manipulator-colaboration.git rosbot_manipulator_colaboration
 ```
+
+This project is divided into 2 stages: [mapping](https://husarion.com/tutorials/ros-projects/rosbot-manipulator-colaboration/#mapping) and [launching the main project](https://husarion.com/tutorials/ros-projects/rosbot-manipulator-colaboration/#launching-the-main-project).
 
 ### Mapping
 
@@ -106,7 +119,7 @@ Now transfer the maps folder to your laptop using for example [sftp](https://lin
 Example result of the map:
 ![map](map.png)
 
-### Launching project
+### Launching the main project
 
 ON LAPTOP:
 ```bash
@@ -120,15 +133,7 @@ cd rosbot_manipulator_colaboration/docker_stuff_rosbot/
 docker-compose -f compose.rosbot.control.yaml -f compose.rosbot.hardware.yaml -f compose.rosbot.localization.yaml -f compose.rosbot.lan.yaml up
 ```
 
-Setup the hardware for example like this:
-
-![setup](setup.jpg)
-
-In addition, you can add some obstacles or build small maze:
-
-![maze](maze.jpg)
-
-Set your ROSbot on the starting point and put objects on its plate. Now, using `Publish Point` on Rviz chose starting point and destination point on the loaded map. Everything should look like in previously linked video:
+Set your ROSbot on the starting point and put objects on its plate. Now, using `Publish Point` on Rviz chose the starting point and the destination point on the loaded map. Everything should look like in previously linked video:
 
 <div align="center">
 <iframe width="???" height="???" src="https://www.youtube.com/???" frameborder="0" gesture="media" allowfullscreen></iframe>
