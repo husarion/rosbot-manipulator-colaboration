@@ -35,7 +35,7 @@ The final effect of this project can be seen in the video below.
 
 The camera image is a flat representation of the three-dimensional world. The position of an object in space (the posion of its base on the ground) is obtained from the position of its upper surface seen on the image. However, the further away the object is from the center of the image, the more visible it will be from the side. Due to the different height of the objects, its top will no longer reflect the position of its base.
 In science, this effect has been called "parallax error" and his presense is often marked when reading measurements from analog pointer meters. To compensate it, it is enough to look at the meter directly from above.
-In the case of this project, the camera is stationary, so a math workaround should be used. Knowing the height (h) of the objects and its distance from the center of the image in XY space (R), you can easily calculate (δ-&delta) its real position, getting rid of the parallax error:
+In the case of this project, the camera is stationary, so a math workaround should be used. Knowing the height (h) of the objects and its distance from the center of the image in XY space (R), you can easily calculate (&delta;) its real position, getting rid of the parallax error:
 
 ![parallax](parallax_error.png)
 
