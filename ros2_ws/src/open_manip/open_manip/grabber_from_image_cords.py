@@ -1,13 +1,13 @@
 #!/usr/bin/env python3
 import time
-import math # unused?
+# import math # unused?
 import rclpy
 from rclpy.node import Node
 from functools import partial
 
 from open_manipulator_msgs.srv import SetJointPosition
 from open_manipulator_msgs.srv import SetKinematicsPose
-from sensor_msgs.msg import JointState  # try without this
+# from sensor_msgs.msg import JointState  # try without this
 from geometry_msgs.msg import Point
 from std_msgs.msg import Bool
 
@@ -126,7 +126,7 @@ class GrabberFromImageCordsNode(Node):
         while not client.wait_for_service(1.0):
             self.get_logger().warn("Waiting for Controller Server...")
         request = SetKinematicsPose.Request()
-        request.planning_group = "abc" # Planning Group which set MoveIt! configuration
+        # request.planning_group = "abc" # Planning Group which set MoveIt! configuration
         request.end_effector_name = "gripper"
         request.kinematics_pose.pose.position.x = objective[0]
         request.kinematics_pose.pose.position.y = objective[1]
@@ -135,7 +135,7 @@ class GrabberFromImageCordsNode(Node):
         future = client.call_async(request)
         future.add_done_callback(partial(self.callback_task_move, objective = objective, path_time = path_time))
         time.sleep(path_time)
-    def callback_task_move(self, future, objective, path_time):
+    def callback_task_move(self, future): #def callback_task_move(self, future, objective, path_time):
         try:
             response = future.result()
             if not response.is_planned:
@@ -162,13 +162,13 @@ class GrabberFromImageCordsNode(Node):
         while not client.wait_for_service(1.0):
             self.get_logger().warn("Waiting for Controller Server...")
         request = SetJointPosition.Request()
-        request.planning_group = "abc" # Planning Group which set MoveIt! configuration
+        # request.planning_group = "abc" # Planning Group which set MoveIt! configuration
         request.joint_position.joint_name = ["gripper"]
         request.joint_position.position = objective
         request.path_time = path_time
         future = client.call_async(request)
         future.add_done_callback(partial(self.callback_tool_control, objective = objective, path_time = path_time))
-    def callback_tool_control(self, future, objective, path_time):
+    def callback_tool_control(self, future): #def callback_tool_control(self, future, objective, path_time):
         try:
             response = future.result()
             if not response.is_planned:
@@ -182,14 +182,14 @@ class GrabberFromImageCordsNode(Node):
         while not client.wait_for_service(1.0):
             self.get_logger().warn("Waiting for Controller Server...")
         request = SetJointPosition.Request()
-        request.planning_group = "abc" # Planning Group which set MoveIt! configuration
+        # request.planning_group = "abc" # Planning Group which set MoveIt! configuration
         request.joint_position.joint_name = ["joint1","joint2","joint3","joint4","gripper"]
         request.joint_position.position = objective
         request.path_time = path_time
         future = client.call_async(request)
         future.add_done_callback(partial(self.callback_joint_move, objective = objective, path_time = path_time))
         time.sleep(path_time)
-    def callback_joint_move(self, future, objective, path_time):
+    def callback_joint_move(self, future): #def callback_joint_move(self, future, objective, path_time):
         try:
             response = future.result()
             if not response.is_planned:
