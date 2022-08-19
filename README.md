@@ -7,7 +7,7 @@ title: 5. Rosbot manipulator colaboration
 ## Abstract
 In most of industrial cases, application of mobile and manipulation robots significantly speeds up and improves a given process.
 Sometimes a combination of the advantages of transport robots and robotic arms is needed to acheive a given goal.
-This project, based on ROS2, shows an example of cooperation between the ROSbot 2.0 PRO mobile robot and a stationary stand copmosed of the OpenMANIPULATOR-X robotic arm and the Intel Realsense D435 depth camera. The software layer cosists of 3 Python nodes (`/grabber_from_image_cords`, `tracker` and `rosbot_control`), which are discribed in [ROS Description](https://github.com/husarion/rosbot-manipulator-colaboration#ros-description) section. 
+This project, based on ROS2, shows an example of cooperation between the ROSbot 2.0 PRO mobile robot and a stationary stand copmosed of the OpenMANIPULATOR-X robotic arm and the Intel Realsense D435 depth camera. The software layer cosists of 3 Python nodes (`/grabber_from_image_cords`, `/tracker` and `/rosbot_control`), which are discribed in [ROS Description](https://github.com/husarion/rosbot-manipulator-colaboration#ros-description) section. 
 
 ![rosbot_with_plate](rosbot_with_plate.jpg)
 
