@@ -10,6 +10,7 @@ RUN sudo apt update && \
     source /opt/ros/$ROS_DISTRO/setup.bash && \
     echo "================== COLCON BUILD (rosbot) ======================" && \
     sudo apt install -y ros-$ROS_DISTRO-nav2-simple-commander && \
+    mkdir -p husarion_ws
     cd husarion_ws && \
     echo "================== COLCON BUILD (rosbot) ======================" && \
     colcon build --packages-select my_rosbot_pkg --symlink-install && \
