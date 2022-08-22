@@ -119,7 +119,12 @@ cd rosbot_manipulator_colaboration/docker_stuff_rosbot/
 docker-compose -f compose.rosbot.hardware.yaml -f compose.rosbot.mapping.yaml -f compose.rosbot.lan.yaml up
 ```
 
-Navigate in your room using `2D Goal Pose` on Rviz. When map is finished open new terminal and again connect to ROSBot via ssh [like previously](https://github.com/husarion/rosbot-manipulator-colaboration#connecting-to-rosbot-via-ssh).
+Navigate in your room using `2D Goal Pose` on Rviz.
+When map is finished open new terminal and again connect to ROSBot via ssh [like previously](https://github.com/husarion/rosbot-manipulator-colaboration#connecting-to-rosbot-via-ssh).
+For example:
+```bash
+ssh husarion@192.168.8.191
+```
 Then execute commands on ROSBot:
 ```bash
 cd rosbot_manipulator_colaboration/docker_stuff_rosbot
