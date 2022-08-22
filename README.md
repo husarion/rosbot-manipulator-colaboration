@@ -17,11 +17,12 @@ ROSbot with custom 3D printed [plate](https://github.com/husarion/rosbot-manipul
 
 The final effect of this project can be seen in the video below.
 
-#### Project Video
+
+<!-- #### Project Video
 
 <div align="center">
 <iframe width="???" height="???" src="https://www.youtube.com/???" frameborder="0" gesture="media" allowfullscreen></iframe>
-</div>
+</div> -->
 
 ### Features and capabilities
 * Whole system runs with Docker Compose 
@@ -99,9 +100,9 @@ This project is divided into 2 stages: [mapping](https://github.com/husarion/ros
 
 ### Mapping
 
-<div align="center">
+<!-- <div align="center">
 <iframe width="???" height="???" src="https://www.youtube.com/???" frameborder="0" gesture="media" allowfullscreen></iframe>
-</div>
+</div> -->
 
 First You need to map rooms and surroundings with ROSBot and than save the map.
 All you need to do is place robot on starting point and:
@@ -148,9 +149,9 @@ docker-compose -f compose.rosbot.control.yaml -f compose.rosbot.hardware.yaml -f
 
 Set your ROSbot on the starting point and put objects on its plate. Now, using `Publish Point` on Rviz chose the starting point and the destination point on the loaded map. Everything should look like in previously linked video:
 
-<div align="center">
+<!-- <div align="center">
 <iframe width="???" height="???" src="https://www.youtube.com/???" frameborder="0" gesture="media" allowfullscreen></iframe>
-</div>
+</div> -->
 
 ## Possible issues
 
