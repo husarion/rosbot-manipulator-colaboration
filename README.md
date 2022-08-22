@@ -80,7 +80,7 @@ In addition, you can add some obstacles or build small maze:
 Whole system runs on Docker Compose to make it as easy as possible to launch on different devices. To install Docker please refer to [Docker installation manual](https://docs.docker.com/engine/install/ubuntu/)
 
 ### Connecting to ROSbot via ssh
-ROSbot is basically a computer running Ubuntu, so plug in a display with HDMI, mause and keyboard into USB port in the rear panel of ROSbot. Proceed step by step with [Connecting ROSbot to your Wi-Fi network](https://husarion.com/manuals/rosbot/#connect-rosbot-to-your-wi-fi-network)
+ROSbot is basically a computer running Ubuntu, so plug in a display with HDMI, mause and keyboard into USB port in the rear panel of ROSbot. Proceed step by step with [Connecting ROSbot to your Wi-Fi network](https://husarion.com/manuals/rosbot/#connect-rosbot-to-your-wi-fi-network).
 For example:
 ```bash
 ssh husarion@192.168.8.191
@@ -127,7 +127,11 @@ cd rosbot_manipulator_colaboration/docker_stuff_rosbot
 ```
 Your map is now saved in the 'maps/' folder!
 
-Now transfer the maps folder to your laptop using for example [sftp](https://linuxize.com/post/how-to-use-linux-sftp-command-to-transfer-files/) (e.g. sftp husarion@192.168.8.191)
+Now transfer the maps folder to your laptop using for example [sftp](https://linuxize.com/post/how-to-use-linux-sftp-command-to-transfer-files/).
+For example:
+```bash
+sftp husarion@192.168.8.191
+```
 
 Example result of the map:
 
