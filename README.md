@@ -156,7 +156,7 @@ xhost local:root
 cd rosbot_manipulator_colaboration/docker_stuff/
 docker compose -f compose.main.yaml -f compose.rviz.localization.yaml -f compose.rviz.lan.yaml up
 ```
-ON ROSBOT
+ON ROSBOT:
 ```bash
 cd rosbot_manipulator_colaboration/docker_stuff_rosbot/
 docker-compose -f compose.rosbot.control.yaml -f compose.rosbot.hardware.yaml -f compose.rosbot.localization.yaml -f compose.rosbot.lan.yaml up
