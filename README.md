@@ -128,9 +128,15 @@ cd rosbot_manipulator_colaboration/docker_stuff_rosbot
 Your map is now saved in the 'maps/' folder!
 
 Now transfer the maps folder to your laptop using for example [sftp](https://linuxize.com/post/how-to-use-linux-sftp-command-to-transfer-files/).
-For example:
+Open a new terminal and:
 ```bash
 sftp husarion@192.168.8.191
+```
+Then:
+```bash
+cd rosbot_manipulator_colaboration/docker_stuff_rosbot/
+lcd rosbot_manipulator_colaboration/docker_stuff_rosbot/
+get -r maps/
 ```
 
 Example result of the map:
