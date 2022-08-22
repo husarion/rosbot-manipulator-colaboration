@@ -135,7 +135,7 @@ class GrabberFromImageCordsNode(Node):
         future = client.call_async(request)
         future.add_done_callback(partial(self.callback_task_move, objective = objective, path_time = path_time))
         time.sleep(path_time)
-    def callback_task_move(self, future): #def callback_task_move(self, future, objective, path_time):
+    def callback_task_move(self, future, objective, path_time):
         try:
             response = future.result()
             if not response.is_planned:
@@ -168,7 +168,7 @@ class GrabberFromImageCordsNode(Node):
         request.path_time = path_time
         future = client.call_async(request)
         future.add_done_callback(partial(self.callback_tool_control, objective = objective, path_time = path_time))
-    def callback_tool_control(self, future): #def callback_tool_control(self, future, objective, path_time):
+    def callback_tool_control(self, future, objective, path_time):
         try:
             response = future.result()
             if not response.is_planned:
@@ -189,7 +189,7 @@ class GrabberFromImageCordsNode(Node):
         future = client.call_async(request)
         future.add_done_callback(partial(self.callback_joint_move, objective = objective, path_time = path_time))
         time.sleep(path_time)
-    def callback_joint_move(self, future): #def callback_joint_move(self, future, objective, path_time):
+    def callback_joint_move(self, future, objective, path_time):
         try:
             response = future.result()
             if not response.is_planned:

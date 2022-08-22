@@ -16,5 +16,5 @@ services:
     environment:
       - ROS_DOMAIN_ID
     volumes:
-      - /home/husarion/husarion_ws/src/my_rosbot_pkg:/app/husarion_ws/src/my_rosbot_pkg
+      - /home/husarion/rosbot_manipulator_colaboration/ros2_ws/src/my_rosbot_pkg:/app/rosbot_manipulator_colaboration/ros2_ws/src/my_rosbot_pkg
     command: ros2 run my_rosbot_pkg rosbot_control

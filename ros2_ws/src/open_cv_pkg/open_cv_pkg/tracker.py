@@ -60,7 +60,7 @@ class TrackerNode(Node):
 		mask_img1 = cv.inRange(hsv, yellowLower1, yellowUpper1)
 		mask_img2 = cv.inRange(hsv, yellowLower2, yellowUpper2)
 		mask_img = mask_img1 + mask_img2
-		contours = cv.findContours(mask_img, cv.RETR_TREE, cv.CHAIN_APPROX_SIMPLE) # contours, hierarchy = cv.fi
+		contours, hierarchy = cv.findContours(mask_img, cv.RETR_TREE, cv.CHAIN_APPROX_SIMPLE) # contours, hierarchy = cv.fi
 		cv.drawContours(cv_img, contours, -1, (0,255,0), 2)
 
 		black_img = np.zeros(cv_img.shape, 'uint8')

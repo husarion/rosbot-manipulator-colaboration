@@ -10,12 +10,12 @@ RUN sudo apt update && \
     source /opt/ros/$ROS_DISTRO/setup.bash && \
     echo "================== COLCON BUILD (rosbot) ======================" && \
     sudo apt install -y ros-$ROS_DISTRO-nav2-simple-commander && \
-    mkdir -p husarion_ws && \
-    cd husarion_ws && \
+    mkdir -p ros2_ws && \
+    cd ros2_ws && \
     echo "================== COLCON BUILD (rosbot) ======================" && \
     colcon build --packages-select my_rosbot_pkg --symlink-install && \
     source /opt/ros/$ROS_DISTRO/setup.bash && \
-    echo "source /app/husarion_ws/install/setup.bash">>~/.bashrc
+    echo "source /app/rosbot_manipulator_colaboration/ros2_ws/install/setup.bash">>~/.bashrc
 
 COPY docker_stuff_rosbot/ros_entrypoint.sh /
 
