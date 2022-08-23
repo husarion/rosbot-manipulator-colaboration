@@ -108,13 +108,15 @@ This project is divided into 2 stages: [mapping](https://github.com/husarion/ros
 First You need to map rooms and surroundings with ROSbot and [Slam Toolbox](http://wiki.ros.org/slam_toolbox). Then save the map.
 All you need to do is place robot on starting point and:
 
-On PC / laptop :computer::
+:computer: on PC / laptop:
+
 Navigate to `rosbot_manipulator_colaboration/docker_stuff/` folder and execute:
 ```bash
 xhost local:root
 docker compose -f compose.rviz.mapping.yaml -f compose.rviz.lan.yaml up
 ```
-On ROSbot :robot::
+:robot: on ROSbot:
+
 Navigate to `rosbot_manipulator_colaboration/docker_stuff_rosbot/` folder and execute:
 ```bash
 docker-compose -f compose.rosbot.hardware.yaml -f compose.rosbot.mapping.yaml -f compose.rosbot.lan.yaml up
@@ -158,13 +160,15 @@ docker container prune
 
 The main part of this project bases on the map just created and the localization [AMCL](https://navigation.ros.org/configuration/packages/configuring-amcl.html) tool.
 
-On PC / laptop :computer::
+:computer: on PC / laptop:
+
 Navigate to `rosbot_manipulator_colaboration/docker_stuff/` folder and execute:
 ```bash
 xhost local:root
 docker compose -f compose.main.yaml -f compose.rviz.localization.yaml -f compose.rviz.lan.yaml up
 ```
-On ROSbot :robot::
+:robot: on ROSbot:
+
 Navigate to `rosbot_manipulator_colaboration/docker_stuff_rosbot/` folder and execute:
 ```bash
 docker-compose -f compose.rosbot.control.yaml -f compose.rosbot.hardware.yaml -f compose.rosbot.localization.yaml -f compose.rosbot.lan.yaml up
