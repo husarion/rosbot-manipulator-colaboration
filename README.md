@@ -78,7 +78,7 @@ In addition, you can add some obstacles or build small maze:
 ![maze](maze.jpg)
 
 ### Docker installation
-Whole system runs on Docker Compose to make it as easy as possible to launch on different devices. To install Docker please refer to [Docker installation manual](https://docs.docker.com/engine/install/ubuntu/)
+Whole system runs on Docker and Docker-Compose to make it as easy and efficient as possible to launch on different devices. To install Docker and Docker-Compose please refer to [Docker installation manual](https://docs.docker.com/desktop/install/linux-install/)
 
 ### Connecting to ROSbot via ssh
 ROSbot is basically a computer running Ubuntu, so plug in a display with HDMI, mause and keyboard into USB port in the rear panel of ROSbot. Proceed step by step with [Connecting ROSbot to your Wi-Fi network](https://husarion.com/manuals/rosbot/#connect-rosbot-to-your-wi-fi-network).
@@ -108,15 +108,15 @@ This project is divided into 2 stages: [mapping](https://github.com/husarion/ros
 First You need to map rooms and surroundings with ROSbot and [Slam Toolbox](http://wiki.ros.org/slam_toolbox). Then save the map.
 All you need to do is place robot on starting point and:
 
-ON LAPTOP:
+On PC / laptop :computer::
+Navigate to `rosbot_manipulator_colaboration/docker_stuff/` folder and execute:
 ```bash
 xhost local:root
-cd rosbot_manipulator_colaboration/docker_stuff/
 docker compose -f compose.rviz.mapping.yaml -f compose.rviz.lan.yaml up
 ```
-ON ROSBOT:
+On ROSbot :robot::
+Navigate to `rosbot_manipulator_colaboration/docker_stuff_rosbot/` folder and execute:
 ```bash
-cd rosbot_manipulator_colaboration/docker_stuff_rosbot/
 docker-compose -f compose.rosbot.hardware.yaml -f compose.rosbot.mapping.yaml -f compose.rosbot.lan.yaml up
 ```
 
@@ -126,9 +126,8 @@ For example:
 ```bash
 ssh husarion@192.168.8.191
 ```
-Then execute commands on ROSBot:
+Then navigate to `rosbot_manipulator_colaboration/docker_stuff_rosbot` folder and execute on ROSbot:
 ```bash
-cd rosbot_manipulator_colaboration/docker_stuff_rosbot
 ./map-save.sh
 ```
 Your map is now saved in the 'maps/' folder!
@@ -138,7 +137,7 @@ Open a new terminal and:
 ```bash
 sftp husarion@192.168.8.191
 ```
-Then:
+Then execute:
 ```bash
 cd rosbot_manipulator_colaboration/docker_stuff_rosbot/
 lcd rosbot_manipulator_colaboration/docker_stuff_rosbot/
@@ -149,19 +148,25 @@ Example result of the map:
 
 ![map](map.png)
 
+Mapping phase is completed, you can stop / remove all running containers on ROSbot:
+```bash
+docker kill $(docker ps -q)
+docker container prune
+```
+
 ### Launching the main project
 
 The main part of this project bases on the map just created and the localization [AMCL](https://navigation.ros.org/configuration/packages/configuring-amcl.html) tool.
 
-ON LAPTOP:
+On PC / laptop :computer::
+Navigate to `rosbot_manipulator_colaboration/docker_stuff/` folder and execute:
 ```bash
 xhost local:root
-cd rosbot_manipulator_colaboration/docker_stuff/
 docker compose -f compose.main.yaml -f compose.rviz.localization.yaml -f compose.rviz.lan.yaml up
 ```
-ON ROSBOT:
+On ROSbot :robot::
+Navigate to `rosbot_manipulator_colaboration/docker_stuff_rosbot/` folder and execute:
 ```bash
-cd rosbot_manipulator_colaboration/docker_stuff_rosbot/
 docker-compose -f compose.rosbot.control.yaml -f compose.rosbot.hardware.yaml -f compose.rosbot.localization.yaml -f compose.rosbot.lan.yaml up
 ```
 
