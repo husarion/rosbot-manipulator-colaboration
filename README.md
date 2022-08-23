@@ -25,7 +25,7 @@ The final effect of this project can be seen in the video below.
 </div> -->
 
 ### Features and capabilities
-* Whole system runs with Docker Compose 
+* Whole system is Docker based 
 * Laptop, manipualtor and camera communicate with the ROSbot via wifi network
 * Application launches Rviz2 software, which shows the visualization of the ROSbot's movement in the room
 * Rviz2 also shows images from the camera: color image, depth image and markers on detected objects
