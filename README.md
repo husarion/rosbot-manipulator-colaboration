@@ -26,7 +26,8 @@ The final effect of this project can be seen in the video below.
 
 ### Features and capabilities
 * Whole system is Docker based 
-* Laptop, manipualtor and camera communicate with the ROSbot via wifi network
+* PC / laptop, manipualtor and camera communicate with the ROSbot in a Local Area Network (LAN) being in the same Wi-Fi network
+* The project is based on autonomous mapping and navigation with ROSbot [Navigation2](https://navigation.ros.org/) and [Slam Toolbox](http://wiki.ros.org/slam_toolbox) in Docker
 * Application launches Rviz2 software, which shows the visualization of the ROSbot's movement in the room
 * Rviz2 also shows images from the camera: color image, depth image and markers on detected objects
 * The color of detected objects depends on the HSV ranges set in the code
@@ -104,7 +105,7 @@ This project is divided into 2 stages: [mapping](https://github.com/husarion/ros
 <iframe width="???" height="???" src="https://www.youtube.com/???" frameborder="0" gesture="media" allowfullscreen></iframe>
 </div> -->
 
-First You need to map rooms and surroundings with ROSBot and than save the map.
+First You need to map rooms and surroundings with ROSbot and [Slam Toolbox](http://wiki.ros.org/slam_toolbox). Then save the map.
 All you need to do is place robot on starting point and:
 
 ON LAPTOP:
@@ -149,6 +150,8 @@ Example result of the map:
 ![map](map.png)
 
 ### Launching the main project
+
+The main part of this project bases on the map just created and the localization [AMCL](https://navigation.ros.org/configuration/packages/configuring-amcl.html) tool.
 
 ON LAPTOP:
 ```bash
