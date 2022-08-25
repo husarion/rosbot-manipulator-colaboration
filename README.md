@@ -13,10 +13,9 @@ This project, based on ROS2, shows an example of cooperation between the ROSbot 
 
 ## Description
 As said in the abstract above, this project is an application based on the cooperation of [ROSbot 2.0 PRO](https://store.husarion.com/products/rosbot-pro), [OpenMANIPULATOR-X](https://emanual.robotis.com/docs/en/platform/openmanipulator_x/overview/) and [Intel Realsense D435](https://www.intelrealsense.com/depth-camera-d435/).
-ROSbot with custom 3D printed [plate](https://github.com/husarion/rosbot-manipulator-colaboration/tree/master/CAD) transports [yellow cylinders](https://github.com/husarion/rosbot-manipulator-colaboration/tree/master/CAD) (more less with a diameter of 35 mm), which can be also 3D printed, from starting point to the manipulator's area. Above the robotic arm there is a Realsense depth camera which detects the cartesian position of objects and their height. The manipulator picks up the yellow elements one by one putting them on top of each other in a safe place called storage. Then, the empty ROSbot returns to its starting point and waits for new objects to be reloaded in order to start new sequence.
+ROSbot with a custom 3D printed [plate](https://github.com/husarion/rosbot-manipulator-colaboration/tree/master/CAD) transports [yellow cylinders](https://github.com/husarion/rosbot-manipulator-colaboration/tree/master/CAD) (more less with a diameter of 35 mm), which can be also 3D printed, from starting point to the manipulator's area. Above the robotic arm there is a Realsense depth camera which detects the cartesian position of objects and their height. The manipulator picks up the yellow elements one by one putting them on top of each other in a safe place called storage. Then, the empty ROSbot returns to its starting point and waits for new objects to be reloaded in order to start new sequence.
 
 The final effect of this project can be seen in the video below.
-
 
 <!-- #### Project Video
 
@@ -62,7 +61,7 @@ Topic | Message type | Publisher node name | Description
 System schematic diagram:
 
 ![diagram](schematic.png)
-'*' More about topics published by ROSbot to rviz You can fine [here](https://github.com/husarion/rosbot-docker#publishes)
+\* More about topics published by ROSbot to rviz You can fine [here](https://github.com/husarion/rosbot-docker#publishes)
 
 
 ## Launching the project
