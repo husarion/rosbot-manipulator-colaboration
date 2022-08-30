@@ -37,15 +37,12 @@ class RosbotControlNode(Node):
         if self.times_clicked_ == 1:
             self.point_A_.pose.position.x = msg.point.x
             self.point_A_.pose.position.y = msg.point.y
-            # self.point_A_.pose.position.z = msg.point.z # unnses
             self.point_A_.header = msg.header
             self.nav.setInitialPose(self.point_A_)  # Sets the initial pose of the robot
-            # self.nav.waitUntilNav2Active()          # if autostarted, else use lifecycleStartup() - PROBABLY UNNESECERY
             self.get_logger().info("Point A:    x: " + str(self.point_A_.pose.position.x) + " y: " + str(self.point_A_.pose.position.y))
         elif self.times_clicked_ == 2:
             self.point_B_.pose.position.x = msg.point.x
             self.point_B_.pose.position.y = msg.point.y
-            # self.point_B_.pose.position.z = msg.point.z # unnses
             self.point_B_.header = msg.header
             self.get_logger().info("Point B:    x: " + str(self.point_B_.pose.position.x) + " y: " + str(self.point_B_.pose.position.y))
             self.state_ = 0
