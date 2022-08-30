@@ -22,6 +22,7 @@ class GrabberFromImageCordsNode(Node):
             self.storage_Z_ = 0.000
             self.storage_coords_ = [0.245, -0.040, self.storage_Z_]     # Z will change
             self.rosbot_with_plate_height_ = 0.168                      # hardcoded height of ROSbot with printed plate [m]
+            # self.rosbot_with_plate_height_ = 0.171                      # hardcoded height of ROSbot with printed plate [m]
        
         self.home_joint_objective_ = [0.000, -1.049, 0.357, 0.703, 0.010]   # initial home pose
         self.object_position_ = None
@@ -61,7 +62,7 @@ class GrabberFromImageCordsNode(Node):
                 z = z - self.manip_offset_ + 0.006          # + experimental Z increment (tuning surface of the grip)
                 if self.storage_flag_ == True:
                     self.storage_Z_ += z - self.rosbot_with_plate_height_
-                    if self.object_count_ > 0:
+                    if self.object_count_ > 1:  # previously "> 0", but let's try
                         self.storage_Z_ += self.manip_offset_
                     self.storage_coords_[2] = self.storage_Z_
                     self.storage_coords_above_ = [self.storage_coords_[0], self.storage_coords_[1], self.storage_coords_[2] + 0.04]
