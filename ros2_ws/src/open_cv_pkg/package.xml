@@ -5,7 +5,7 @@
   <version>1.0.0</version>
   <description>This package contains one node in tracker.py, which is responsible for recognizing desired objects.'</description>
   <maintainer email="jan.brzyk@husarion.com">Jan Brzyk, Husarion</maintainer>
-  <license>Apache 2.0</license>
+  <license>Apache License 2.0</license>
 
   <depend>rclpy</depend>
   <depend>image_transport</depend>
