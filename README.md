@@ -70,7 +70,8 @@ System schematic diagram:
 
 Setup the hardware for example like on photo below. First, set up the tripod (or other similar equipment) with the depth camera pointing directly downwards. Then place the manipulator on a stable base on the ground. It is VERY IMPORTANT that the origin of the manipulator's coordinate system (middle of base of the first servo, [the first TF from the ground](https://emanual.robotis.com/assets/images/platform/openmanipulator_x/OpenManipulator_rviz.png)) is in the middle of the uppor border of the color image from the camera. It must be manually precisely set at a later stage of the project, immediately when the color image is displayed.
 
-![setup](setup.jpg)
+![setup1](setup1.jpg)
+![setup2](setup2.jpg)
 
 In addition, you can add some obstacles or build small maze:
 
