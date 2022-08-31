@@ -299,7 +299,6 @@ From:
 17      command: ros2 launch open_manipulator_x_controller open_manipulator_x_controller.launch.py baud_rate:=115200  # baud_rate:=1000000 or 115200 or none (default 57600)
 ```
 To:
-From:
 ```ruby
 17      command: ros2 launch open_manipulator_x_controller open_manipulator_x_controller.launch.py  # baud_rate:=1000000 or 115200 or none (default 57600)
 ```
