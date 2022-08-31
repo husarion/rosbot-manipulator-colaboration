@@ -279,7 +279,32 @@ Now, using `Publish Point` on Rviz chose the starting point and the destination 
 
 Every time you stop and rester the project first you need to unplug and plug USB cable of Realsense.
 
-#### 2. Manipulator doesn't move
+#### 2. Manipulator doesn't move (controller container exits with error code)
+
+This may be coused by the wrong boudrate of the DYNAMIXEL servos.
+
+There are two ways to solve this problem:
+
+##### 1. Writing boudrate directly to Your DYNAMIXEL servos
+- Download the [DYNAMIXEL Wizard 2.0](https://emanual.robotis.com/docs/en/software/dynamixel/dynamixel_wizard2/) software and open it.
+- Connect the USB cable of the OpenMANIPULATOR-X to Your laptop/PC.
+- Scan for the servos
+- Change their [boudrate setting in the EEPROM Area](https://emanual.robotis.com/docs/en/dxl/x/xm430-w350/#baud-rate8) to value `2: 115200 [bps]`
+##### 2. Modify boudrate value in compose file to default and hope for the best
+Assuming no one has made changes to Your servos before, their boudrate is set to the default (57600 [bps]).
+Modify the line 17 of the `rosbot_manipulator_colaboration/docker_stuff/compose.main.yaml` file:
+
+From:
+```ruby
+17      command: ros2 launch open_manipulator_x_controller open_manipulator_x_controller.launch.py baud_rate:=115200  # baud_rate:=1000000 or 115200 or none (default 57600)
+```
+To:
+From:
+```ruby
+17      command: ros2 launch open_manipulator_x_controller open_manipulator_x_controller.launch.py  # baud_rate:=1000000 or 115200 or none (default 57600)
+```
+
+#### 3. Manipulator doesn't move (controller container runs properly)
 
 There are [some positions](https://github.com/ROBOTIS-GIT/open_manipulator/pull/46) of robotic arm which exceed its joint's limits.
 Try to launch project with the initial pose like this:

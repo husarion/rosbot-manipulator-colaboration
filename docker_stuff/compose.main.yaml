@@ -14,7 +14,7 @@ services:
       - ROS_DOMAIN_ID
     devices:
       - "/dev/ttyUSB0:/dev/ttyUSB0"
-    command: ros2 launch open_manipulator_x_controller open_manipulator_x_controller.launch.py baud_rate:=115200  # baud_rate:=57600 or 115200 or none (default 1Mb)
+    command: ros2 launch open_manipulator_x_controller open_manipulator_x_controller.launch.py baud_rate:=115200  # baud_rate:=1000000 or 115200 or none (default 57600)
   
   grabber:
     build:
