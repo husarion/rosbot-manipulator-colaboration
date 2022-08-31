@@ -66,7 +66,7 @@ System schematic diagram:
 
 ## Launching the project
 
-### Hardware setup
+### 1. Hardware setup
 
 Setup the hardware for example like on photo below. First, set up the tripod (or other similar equipment) with the depth camera pointing directly downwards. Then place the manipulator on a stable base on the ground. It is VERY IMPORTANT that the origin of the manipulator's coordinate system (middle of base of the first servo, [the first TF from the ground](https://emanual.robotis.com/assets/images/platform/openmanipulator_x/OpenManipulator_rviz.png)) is in the middle of the uppor border of the color image from the camera. It must be manually precisely set at a later stage of the project, immediately when the color image is displayed.
 
@@ -77,7 +77,7 @@ In addition, you can add some obstacles or build small maze:
 
 ![maze](maze.jpg)
 
-### Docker installation
+### 2. Docker installation
 Whole system runs on Docker and Docker-Compose to make it as easy and efficient as possible to launch on different devices.
 Make sure you have [Docker and Docker-Compose](https://docs.docker.com/desktop/install/linux-install/) installed on your laptop.
 
@@ -105,14 +105,14 @@ Make sure you have [Docker and Docker-Compose](https://docs.docker.com/desktop/i
 > sudo chmod 666 /var/run/docker.sock
 > ```
 
-### Connecting to ROSbot via ssh
+### 3. Connecting to ROSbot via ssh
 ROSbot is basically a computer running Ubuntu, so plug in a display with HDMI, mause and keyboard into USB port in the rear panel of ROSbot. Proceed step by step with [Connecting ROSbot to your Wi-Fi network](https://husarion.com/manuals/rosbot/#connect-rosbot-to-your-wi-fi-network).
 For example:
 ```bash
 ssh husarion@192.168.8.191
 ```
 
-### Cloning GitHub repository
+### 4. Cloning GitHub repository
 
 ##### Both on PC and on ROSbot:
 
@@ -121,6 +121,8 @@ Create new foler and clone this repository:
 mkdir rosbot_manipulator_colaboration
 git clone https://github.com/husarion/rosbot-manipulator-colaboration.git rosbot_manipulator_colaboration
 ```
+
+### 5. Hardcoded variables
 
 > **Warning**
 > To make project work properly, measure the vertical distance between the camera and the ground using for example the tape measure. The measured value in milimeters should be writeen into line 25 of:
@@ -144,7 +146,7 @@ git clone https://github.com/husarion/rosbot-manipulator-colaboration.git rosbot
 > 28      self.camera_width_in_mm_ = 710.0    # [mm] hardcoded width of camera view measured on the ground 
 > ```
 
-### Preparing .env file
+### 6. Preparing .env file
 
 Navigate to `rosbot_manipulator_colaboration/docker_stuff_rosbot/` folder and open `.env` file with a favourite editor.
 
@@ -157,11 +159,31 @@ Modify its content:
 - set `SERIAL_PORT` depending on what ROSbot You are using
 - set `RPLIDAR_BAUDRATE` depending on what RPlidar You are using
 
+### 7. Flash the microcontroller 
+
+To flash the right firmware, open ROSbot's terminal (e.g. [via ssh](https://github.com/husarion/rosbot-manipulator-colaboration#connecting-to-rosbot-via-ssh)) and execute this command:
+   
+- for differential drive (regular wheels):
+   
+```bash
+docker run --rm -it --privileged \
+husarion/rosbot:noetic \
+/flash-firmware.py /root/firmware_diff.bin
+```
+- for omnidirectional wheeled ROSbot (mecanum wheels):
+
+```bash
+docker run --rm -it --privileged \
+husarion/rosbot:noetic \
+/flash-firmware.py /root/firmware_mecanum.bin
+```
+
 ---
+
 
 #### This project is divided into 2 stages: [mapping](https://github.com/husarion/rosbot-manipulator-colaboration#mapping) and [launching the main project](https://github.com/husarion/rosbot-manipulator-colaboration#launching-the-main-project).
 
-### Mapping
+## Mapping
 
 <!-- <div align="center">
 <iframe width="???" height="???" src="https://www.youtube.com/???" frameborder="0" gesture="media" allowfullscreen></iframe>
@@ -218,7 +240,7 @@ docker kill $(docker ps -q)
 docker container prune
 ```
 
-### Launching the main project
+## Launching the main project
 
 The main part of this project bases on the map just created and the localization [AMCL](https://navigation.ros.org/configuration/packages/configuring-amcl.html) tool.
 
