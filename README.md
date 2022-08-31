@@ -73,27 +73,24 @@ Setup the hardware for example like on photo below. First, set up the tripod (or
 ![setup1](setup1.jpg)
 
 To make project work properly, measure the vertical distance between the camera and the ground using for example the tape measure. The measured value in milimeters should be writeen into line 25 of:
-```
-ros2_ws/src/open_cv_pkg/open_cv_pkg/tracker.py
-```
 ```ruby
-25          self.H_ = 700.0 				# [mm] Hardcoded height of Realsense above the ground
+ros2_ws/src/open_cv_pkg/open_cv_pkg/tracker.py
+---
+25      self.H_ = 700.0     # [mm] Hardcoded height of Realsense above the ground
 ```
 
 And also the measured value in meters should be written into line 26 of:
-```
-ros2_ws/src/open_manip/open_manip/grabber_from_image_cords.py
-```
 ```ruby
-26          self.H_ = 0.70                  # [m] hardcoded height of Realsense above the ground
+ros2_ws/src/open_manip/open_manip/grabber_from_image_cords.py
+---
+26      self.H_ = 0.70      # [m] hardcoded height of Realsense above the ground
 ```
 
-Then measure the width of the field of view of the camera measured on the ground. Tha measured value in meters should be written into line 28 of:
-```
-ros2_ws/src/open_manip/open_manip/grabber_from_image_cords.py
-```
+Then measure the width of the field of view of the camera measured on the ground. Tha measured value in milimeters should be written into line 28 of:
 ```ruby
-28          self.camera_width_in_mm_ = 710.0    # [mm] hardcoded width of camera view measured on the ground 
+ros2_ws/src/open_manip/open_manip/grabber_from_image_cords.py
+---
+28      self.camera_width_in_mm_ = 710.0    # [mm] hardcoded width of camera view measured on the ground 
 ```
 
 ![setup2](setup2.jpg)
