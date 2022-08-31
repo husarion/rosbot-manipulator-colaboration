@@ -146,12 +146,13 @@ git clone https://github.com/husarion/rosbot-manipulator-colaboration.git rosbot
 
 ### Preparing .env file
 
-Navigate to `rosbot_manipulator_colaboration/docker_stuff_rosbot/` folder and open `.env` file with a favourite editor:
+Navigate to `rosbot_manipulator_colaboration/docker_stuff_rosbot/` folder and open `.env` file with a favourite editor.
+
 For example:
 ```bash
 nano .env
 ```
-Modify the content:
+Modify its content:
 - set your own `ROS_DOMAIN_ID` (if modified, write the same in `rosbot_manipulator_colaboration/docker_stuff/.env`)
 - set `SERIAL_PORT` depending on what ROSbot You are using
 - set `RPLIDAR_BAUDRATE` depending on what RPlidar You are using
