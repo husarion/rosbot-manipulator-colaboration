@@ -206,6 +206,13 @@ Navigate to `rosbot_manipulator_colaboration/docker_stuff_rosbot/` folder and ex
 docker compose -f compose.rosbot.hardware.yaml -f compose.rosbot.mapping.yaml -f compose.rosbot.lan.yaml up
 ```
 
+> **Note** 💡
+> 
+> In order to use GUI of applications running in containers (like rviz), the `xhost local:root` command must be executed on Your PC, before starting the containers
+> ``` bash
+> xhost local:root
+> ```
+
 Navigate in your room using `2D Goal Pose` on Rviz.
 When map is finished open new terminal and again connect to ROSBot via ssh [like previously](https://github.com/husarion/rosbot-manipulator-colaboration#connecting-to-rosbot-via-ssh).
 For example:
