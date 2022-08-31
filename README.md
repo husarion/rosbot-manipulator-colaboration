@@ -75,7 +75,7 @@ Setup the hardware for example like on photo below. First, set up the tripod (or
 To make project work properly, measure the vertical distance between the camera and the ground using for example the tape measure. The measured value in milimeters should be writeen into line 25 of:
 ```ruby 
 ros2_ws/src/open_cv_pkg/open_cv_pkg/tracker.py
-___
+<hr>
 25      self.H_ = 700.0     # [mm] Hardcoded height of Realsense above the ground
 ```
 
