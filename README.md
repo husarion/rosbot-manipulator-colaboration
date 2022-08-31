@@ -144,6 +144,20 @@ git clone https://github.com/husarion/rosbot-manipulator-colaboration.git rosbot
 > 28      self.camera_width_in_mm_ = 710.0    # [mm] hardcoded width of camera view measured on the ground 
 > ```
 
+### Preparing .env file
+
+Navigate to `rosbot_manipulator_colaboration/docker_stuff_rosbot/` folder and open `.env` file with a favourite editor:
+For example:
+```bash
+nano .env
+```
+Modify the content:
+- set your own `ROS_DOMAIN_ID` (if modified, write the same in `rosbot_manipulator_colaboration/docker_stuff/.env`)
+- set `SERIAL_PORT` depending on what ROSbot You are using
+- set `RPLIDAR_BAUDRATE` depending on what RPlidar You are using
+
+---
+
 #### This project is divided into 2 stages: [mapping](https://github.com/husarion/rosbot-manipulator-colaboration#mapping) and [launching the main project](https://github.com/husarion/rosbot-manipulator-colaboration#launching-the-main-project).
 
 ### Mapping
