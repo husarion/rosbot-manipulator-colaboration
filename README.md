@@ -100,7 +100,32 @@ In addition, you can add some obstacles or build small maze:
 ![maze](maze.jpg)
 
 ### Docker installation
-Whole system runs on Docker and Docker-Compose to make it as easy and efficient as possible to launch on different devices. To install Docker and Docker-Compose please refer to [Docker installation manual](https://docs.docker.com/desktop/install/linux-install/)
+Whole system runs on Docker and Docker-Compose to make it as easy and efficient as possible to launch on different devices.
+Make sure you have [Docker and Docker-Compose](https://docs.docker.com/desktop/install/linux-install/) installed on your laptop.
+
+> If you don't have, here's a quick summary for Ubuntu 20.04 (just click the `copy` button, and paste it to the Linux terminal):
+> ```bash
+> sudo apt-get update && sudo apt-get install -y ca-certificates curl gnupg lsb-release
+> ```
+> ```bash
+> sudo mkdir -p /etc/apt/keyrings
+> ```
+> ```bash
+> curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo gpg --dearmor -o /etc/apt/keyrings/docker.gpg
+> ```
+> ```bash
+> echo \
+>  "deb [arch=$(dpkg --print-architecture) signed-by=/etc/apt/keyrings/docker.gpg] https://download.docker.com/linux/ubuntu \
+>  $(lsb_release -cs) stable" | sudo tee /etc/apt/sources.list.d/docker.list > /dev/null
+> ```
+> ```bash
+> sudo apt-get update && sudo apt-get install -y docker-ce docker-ce-cli containerd.io docker-compose-plugin
+> ```
+>
+> Change `/var/run/docker.sock` permissions, so every user can can run docker commands without `sudo`:
+> ```bash
+> sudo chmod 666 /var/run/docker.sock
+> ```
 
 ### Connecting to ROSbot via ssh
 ROSbot is basically a computer running Ubuntu, so plug in a display with HDMI, mause and keyboard into USB port in the rear panel of ROSbot. Proceed step by step with [Connecting ROSbot to your Wi-Fi network](https://husarion.com/manuals/rosbot/#connect-rosbot-to-your-wi-fi-network).
@@ -141,7 +166,7 @@ docker compose -f compose.rviz.mapping.yaml -f compose.rviz.lan.yaml up
 
 Navigate to `rosbot_manipulator_colaboration/docker_stuff_rosbot/` folder and execute:
 ```bash
-docker-compose -f compose.rosbot.hardware.yaml -f compose.rosbot.mapping.yaml -f compose.rosbot.lan.yaml up
+docker compose -f compose.rosbot.hardware.yaml -f compose.rosbot.mapping.yaml -f compose.rosbot.lan.yaml up
 ```
 
 Navigate in your room using `2D Goal Pose` on Rviz.
@@ -193,7 +218,7 @@ docker compose -f compose.main.yaml -f compose.rviz.localization.yaml -f compose
 
 Navigate to `rosbot_manipulator_colaboration/docker_stuff_rosbot/` folder and execute:
 ```bash
-docker-compose -f compose.rosbot.control.yaml -f compose.rosbot.hardware.yaml -f compose.rosbot.localization.yaml -f compose.rosbot.lan.yaml up
+docker compose -f compose.rosbot.control.yaml -f compose.rosbot.hardware.yaml -f compose.rosbot.localization.yaml -f compose.rosbot.lan.yaml up
 ```
 
 Set your ROSbot on the starting point and put objects on its plate. Now, using `Publish Point` on Rviz chose the starting point and the destination point on the loaded map. Everything should look like in previously linked video:
