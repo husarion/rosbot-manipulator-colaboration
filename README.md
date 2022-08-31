@@ -207,6 +207,8 @@ docker container prune
 
 The main part of this project bases on the map just created and the localization [AMCL](https://navigation.ros.org/configuration/packages/configuring-amcl.html) tool.
 
+##### Set your ROSbot on the starting point and put objects on its plate. 
+
 :computer: on PC / laptop:
 
 Navigate to `rosbot_manipulator_colaboration/docker_stuff/` folder and execute:
@@ -221,7 +223,7 @@ Navigate to `rosbot_manipulator_colaboration/docker_stuff_rosbot/` folder and ex
 docker compose -f compose.rosbot.control.yaml -f compose.rosbot.hardware.yaml -f compose.rosbot.localization.yaml -f compose.rosbot.lan.yaml up
 ```
 
-Set your ROSbot on the starting point and put objects on its plate. Now, using `Publish Point` on Rviz chose the starting point and the destination point on the loaded map. Everything should look like in previously linked video:
+Now, using `Publish Point` on Rviz chose the starting point and the destination point on the loaded map. Everything should look like in previously linked video:
 
 <!-- <div align="center">
 <iframe width="???" height="???" src="https://www.youtube.com/???" frameborder="0" gesture="media" allowfullscreen></iframe>
