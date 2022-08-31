@@ -144,7 +144,7 @@ git clone https://github.com/husarion/rosbot-manipulator-colaboration.git rosbot
 > 28      self.camera_width_in_mm_ = 710.0    # [mm] hardcoded width of camera view measured on the ground 
 > ```
 
-##### This project is divided into 2 stages: [mapping](https://github.com/husarion/rosbot-manipulator-colaboration#mapping) and [launching the main project](https://github.com/husarion/rosbot-manipulator-colaboration#launching-the-main-project).
+#### This project is divided into 2 stages: [mapping](https://github.com/husarion/rosbot-manipulator-colaboration#mapping) and [launching the main project](https://github.com/husarion/rosbot-manipulator-colaboration#launching-the-main-project).
 
 ### Mapping
 
