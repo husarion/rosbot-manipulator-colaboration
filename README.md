@@ -122,10 +122,7 @@ mkdir rosbot_manipulator_colaboration
 git clone https://github.com/husarion/rosbot-manipulator-colaboration.git rosbot_manipulator_colaboration
 ```
 
-This project is divided into 2 stages: [mapping](https://github.com/husarion/rosbot-manipulator-colaboration#mapping) and [launching the main project](https://github.com/husarion/rosbot-manipulator-colaboration#launching-the-main-project).
-
 > **Warning**
-> This is a warning
 > To make project work properly, measure the vertical distance between the camera and the ground using for example the tape measure. The measured value in milimeters should be writeen into line 25 of:
 > 
 > `ros2_ws/src/open_cv_pkg/open_cv_pkg/tracker.py`
@@ -146,6 +143,8 @@ This project is divided into 2 stages: [mapping](https://github.com/husarion/ros
 > ```ruby
 > 28      self.camera_width_in_mm_ = 710.0    # [mm] hardcoded width of camera view measured on the ground 
 > ```
+
+##### This project is divided into 2 stages: [mapping](https://github.com/husarion/rosbot-manipulator-colaboration#mapping) and [launching the main project](https://github.com/husarion/rosbot-manipulator-colaboration#launching-the-main-project).
 
 ### Mapping
 
