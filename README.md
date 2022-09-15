@@ -61,7 +61,7 @@ Topic | Message type | Publisher node name | Description
 System schematic diagram:
 
 ![diagram](schematic.png)
-\* More about topics published by ROSbot to rviz You can fine [here](https://github.com/husarion/rosbot-docker#publishes)
+\* More about topics published by ROSbot to rviz you can find [here](https://github.com/husarion/rosbot-docker#publishes).
 
 
 ## Launching the project
@@ -156,8 +156,8 @@ nano .env
 ```
 Modify its content:
 - set your own `ROS_DOMAIN_ID` (if modified, write the same in `rosbot_manipulator_colaboration/docker_stuff/.env`)
-- set `SERIAL_PORT` depending on what ROSbot You are using
-- set `RPLIDAR_BAUDRATE` depending on what RPlidar You are using
+- set `SERIAL_PORT` depending on what ROSbot you are using
+- set `RPLIDAR_BAUDRATE` depending on what RPlidar you are using
 
 ### 7. Flash the microcontroller 
 
@@ -189,7 +189,7 @@ husarion/rosbot:noetic \
 <iframe width="???" height="???" src="https://www.youtube.com/???" frameborder="0" gesture="media" allowfullscreen></iframe>
 </div> -->
 
-First You need to map rooms and surroundings with ROSbot and [Slam Toolbox](http://wiki.ros.org/slam_toolbox). Then save the map.
+First you need to map rooms and surroundings with ROSbot and [Slam Toolbox](http://wiki.ros.org/slam_toolbox). Then save the map.
 All you need to do is place robot on starting point and:
 
 :computer: on PC / laptop:
@@ -208,7 +208,7 @@ docker compose -f compose.rosbot.hardware.yaml -f compose.rosbot.mapping.yaml -f
 
 > **Note** 💡
 > 
-> In order to use GUI of applications running in containers (like rviz), the `xhost local:root` command must be executed on Your PC, before starting the containers
+> In order to use GUI of applications running in containers (like rviz), the `xhost local:root` command must be executed on your PC, before starting the containers
 > ``` bash
 > xhost local:root
 > ```
@@ -285,13 +285,13 @@ This may be coused by the wrong boudrate of the DYNAMIXEL servos.
 
 There are two ways to solve this problem:
 
-##### 1. Writing boudrate directly to Your DYNAMIXEL servos
+##### 1. Writing boudrate directly to your DYNAMIXEL servos
 - Download the [DYNAMIXEL Wizard 2.0](https://emanual.robotis.com/docs/en/software/dynamixel/dynamixel_wizard2/) software and open it.
-- Connect the USB cable of the OpenMANIPULATOR-X to Your laptop/PC.
+- Connect the USB cable of the OpenMANIPULATOR-X to your laptop/PC.
 - Scan for the servos
 - Change their [boudrate setting in the EEPROM Area](https://emanual.robotis.com/docs/en/dxl/x/xm430-w350/#baud-rate8) to value `2: 115200 [bps]`
 ##### 2. Modify boudrate value in compose file to default and hope for the best
-Assuming no one has made changes to Your servos before, their boudrate is set to the default (57600 [bps]).
+Assuming no one has made changes to your servos before, their boudrate is set to the default (57600 [bps]).
 Modify the line 17 of the `rosbot_manipulator_colaboration/docker_stuff/compose.main.yaml` file:
 
 From:
