@@ -1,7 +1,7 @@
 ---
-sidebar_label: 5. Rosbot manipulator colaboration
+sidebar_label: 6. Rosbot manipulator colaboration
 id: rosbot-manipulator-colaboration
-title: 5. Rosbot manipulator colaboration
+title: 6. Rosbot manipulator colaboration
 keywords:
   - robot cooperation
   - rosbot pro
