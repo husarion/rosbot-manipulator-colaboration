@@ -17,11 +17,11 @@ ROSbot with a custom 3D printed [plate](https://github.com/husarion/rosbot-manip
 
 The final effect of this project can be seen in the video below.
 
-<!-- #### Project Video
+#### Project Video
 
 <div align="center">
-<iframe width="???" height="???" src="https://www.youtube.com/???" frameborder="0" gesture="media" allowfullscreen></iframe>
-</div> -->
+<iframe width="1920" height="1080" src="https://www.youtube.com/watch?v=ln8KBR5Wjo4" frameborder="0" gesture="media" allowfullscreen></iframe>
+</div>
 
 ### Features and capabilities
 * Whole system is Docker based 
@@ -161,7 +161,7 @@ Modify its content:
 
 ### 7. Flash the microcontroller 
 
-To flash the right firmware, open ROSbot's terminal (e.g. [via ssh](https://github.com/husarion/rosbot-manipulator-colaboration#connecting-to-rosbot-via-ssh)) and execute this command:
+To flash the right firmware, open ROSbot's terminal (e.g. [via ssh](https://github.com/husarion/rosbot-manipulator-colaboration#3-connecting-to-rosbot-via-ssh)) and execute this command:
    
 - for differential drive (regular wheels):
    
@@ -184,10 +184,6 @@ husarion/rosbot:noetic \
 #### This project is divided into 2 stages: [mapping](https://github.com/husarion/rosbot-manipulator-colaboration#mapping) and [launching the main project](https://github.com/husarion/rosbot-manipulator-colaboration#launching-the-main-project).
 
 ## Mapping
-
-<!-- <div align="center">
-<iframe width="???" height="???" src="https://www.youtube.com/???" frameborder="0" gesture="media" allowfullscreen></iframe>
-</div> -->
 
 First you need to map rooms and surroundings with ROSbot and [Slam Toolbox](http://wiki.ros.org/slam_toolbox). Then save the map.
 All you need to do is place robot on starting point and:
@@ -214,7 +210,7 @@ docker compose -f compose.rosbot.hardware.yaml -f compose.rosbot.mapping.yaml -f
 > ```
 
 Navigate in your room using `2D Goal Pose` on Rviz.
-When map is finished open new terminal and again connect to ROSBot via ssh [like previously](https://github.com/husarion/rosbot-manipulator-colaboration#connecting-to-rosbot-via-ssh).
+When map is finished open new terminal and again connect to ROSBot via ssh [like previously](https://github.com/husarion/rosbot-manipulator-colaboration#3-connecting-to-rosbot-via-ssh).
 For example:
 ```bash
 ssh husarion@192.168.8.191
@@ -226,7 +222,7 @@ Then navigate to `rosbot_manipulator_colaboration/docker_stuff_rosbot` folder an
 Your map is now saved in the 'maps/' folder!
 
 Now transfer the maps folder to your laptop using for example [sftp](https://linuxize.com/post/how-to-use-linux-sftp-command-to-transfer-files/).
-Open a new terminal and:
+Open a new terminal and exetute (with your IP adress):
 ```bash
 sftp husarion@192.168.8.191
 ```
@@ -269,17 +265,17 @@ docker compose -f compose.rosbot.control.yaml -f compose.rosbot.hardware.yaml -f
 
 Now, using `Publish Point` on Rviz chose the starting point and the destination point on the loaded map. Everything should look like in previously linked video:
 
-<!-- <div align="center">
-<iframe width="???" height="???" src="https://www.youtube.com/???" frameborder="0" gesture="media" allowfullscreen></iframe>
-</div> -->
+<div align="center">
+<iframe width="???" height="???" src="https://www.youtube.com/watch?v=ln8KBR5Wjo4&t=270s" frameborder="0" gesture="media" allowfullscreen></iframe>
+</div>
 
 ## Possible issues
 
-#### 1. No image from Realsense camera
+### 1. No image from Realsense camera
 
 Every time you stop and rester the project first you need to unplug and plug USB cable of Realsense.
 
-#### 2. Manipulator doesn't move (controller container exits with error code)
+### 2. Manipulator doesn't move (controller container exits with error code)
 
 This may be coused by the wrong boudrate of the DYNAMIXEL servos.
 
@@ -303,7 +299,7 @@ To:
 17      command: ros2 launch open_manipulator_x_controller open_manipulator_x_controller.launch.py  # baud_rate:=1000000 or 115200 or none (default 57600)
 ```
 
-#### 3. Manipulator doesn't move (controller container runs properly)
+### 3. Manipulator doesn't move (controller container runs properly)
 
 There are [some positions](https://github.com/ROBOTIS-GIT/open_manipulator/pull/46) of robotic arm which exceed its joint's limits.
 Try to launch project with the initial pose like this:
