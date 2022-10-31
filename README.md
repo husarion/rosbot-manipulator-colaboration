@@ -34,8 +34,6 @@ ROSbot with a custom 3D printed [plate](https://github.com/husarion/rosbot-manip
 
 The final effect of this project can be seen in the video below.
 
-#### Project Video
-
 <YouTube videoId="ln8KBR5Wjo4" opts={opts} />
 
 <!---
