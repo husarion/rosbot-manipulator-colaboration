@@ -26,6 +26,8 @@ In most of industrial cases, application of mobile and manipulation robots signi
 Sometimes a combination of the advantages of transport robots and robotic arms is needed to acheive a given goal.
 This project, based on ROS2, shows an example of cooperation between the ROSbot 2.0 PRO mobile robot and a stationary stand copmosed of the OpenMANIPULATOR-X robotic arm and the Intel Realsense D435 depth camera. The software layer cosists of 3 Python nodes (`/grabber_from_image_cords`, `/tracker` and `/rosbot_control`), which are discribed in [ROS Description](https://github.com/husarion/rosbot-manipulator-colaboration#ros-description) section. 
 
+![rosbot_with_plate](rosbot_with_plate.jpg)
+
 :::tip Open Source code on GitHub
 
 The full source code is here:
@@ -33,8 +35,6 @@ The full source code is here:
 **https://github.com/husarion/rosbot-manipulator-colaboration**
 
 :::
-
-![rosbot_with_plate](rosbot_with_plate.jpg)
 
 ## Description
 As said in the abstract above, this project is an application based on the cooperation of [ROSbot 2.0 PRO](https://store.husarion.com/products/rosbot-pro), [OpenMANIPULATOR-X](https://emanual.robotis.com/docs/en/platform/openmanipulator_x/overview/) and [Intel Realsense D435](https://www.intelrealsense.com/depth-camera-d435/).
