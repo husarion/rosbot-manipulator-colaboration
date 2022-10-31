@@ -11,6 +11,16 @@ keywords:
   - intel realsense
 ---
 
+import YouTube from 'react-youtube';
+
+export const opts = { 
+  width: '100%',
+  playerVars: {
+    // https://developers.google.com/youtube/player_parameters
+    autoplay: 0,
+  },
+};
+
 ## Abstract
 In most of industrial cases, application of mobile and manipulation robots significantly speeds up and improves a given process.
 Sometimes a combination of the advantages of transport robots and robotic arms is needed to acheive a given goal.
@@ -26,9 +36,13 @@ The final effect of this project can be seen in the video below.
 
 #### Project Video
 
+<YouTube videoId="ln8KBR5Wjo4" opts={opts} />
+
+<!---
 <div align="center">
 <iframe width="1920" height="1080" src="https://www.youtube.com/watch?v=ln8KBR5Wjo4" frameborder="0" gesture="media" allowfullscreen></iframe>
 </div>
+-->
 
 ### Features and capabilities
 * Whole system is Docker based 
