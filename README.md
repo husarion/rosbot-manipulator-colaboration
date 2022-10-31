@@ -2,6 +2,13 @@
 sidebar_label: 5. Rosbot manipulator colaboration
 id: rosbot-manipulator-colaboration
 title: 5. Rosbot manipulator colaboration
+keywords:
+  - robot cooperation
+  - rosbot pro
+  - object transport
+  - dynamixel
+  - openmanipulator
+  - intel realsense
 ---
 
 ## Abstract
