@@ -267,7 +267,7 @@ Example result of the map:
 Mapping phase is completed, you can stop / remove all running containers on ROSbot:
 ```bash
 docker kill $(docker ps -q)
-docker container prune
+docker container prune -f
 ```
 
 ## Launching the main project
