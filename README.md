@@ -253,7 +253,7 @@ Navigate to `rosbot_manipulator_colaboration/docker_stuff_rosbot/` folder and ex
 docker compose -f compose.rosbot.control.yaml -f compose.rosbot.hardware.yaml -f compose.rosbot.localization.yaml -f compose.rosbot.lan.yaml up
 ```
 
-Now, using `Publish Point` on Rviz chose the starting point and the destination point on the loaded map. Everything should look like in previously linked video (go to 4:30):
+Now, using `Publish Point` on Rviz chose the starting point and the destination point on the loaded map. Everything should look like in previously linked video:
 
 https://www.youtube.com/watch?v=ln8KBR5Wjo4&t=270s
 
