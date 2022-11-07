@@ -1,26 +1,3 @@
----
-sidebar_label: 6. Rosbot manipulator colaboration
-id: rosbot-manipulator-colaboration
-title: Rosbot manipulator colaboration
-keywords:
-  - robot cooperation
-  - rosbot pro
-  - object transport
-  - dynamixel
-  - openmanipulator
-  - intel realsense
----
-
-import YouTube from 'react-youtube';
-
-export const opts = { 
-  width: '100%',
-  playerVars: {
-    // https://developers.google.com/youtube/player_parameters
-    autoplay: 0,
-  },
-};
-
 ## Abstract
 In most industrial cases, application of mobile and manipulation robots significantly speeds up and improves a given process.
 Sometimes a combination of the advantages of transport robots and robotic arms is needed to achieve a given goal.
@@ -28,21 +5,13 @@ This project, based on ROS2, shows an example of cooperation between the ROSbot 
 
 ![rosbot_with_plate](rosbot_with_plate.jpg)
 
-:::tip Open Source code on GitHub
-
-The full source code is here:
-
-**https://github.com/husarion/rosbot-manipulator-colaboration**
-
-:::
-
 ## Description
 As said in the abstract above, this project is an application based on the cooperation of [ROSbot 2.0 PRO](https://store.husarion.com/products/rosbot-pro), [OpenMANIPULATOR-X](https://emanual.robotis.com/docs/en/platform/openmanipulator_x/overview/) and [Intel Realsense D435](https://www.intelrealsense.com/depth-camera-d435/).
 ROSbot with a custom 3D printed [plate](https://github.com/husarion/rosbot-manipulator-colaboration/tree/master/CAD) transports [yellow cylinders](https://github.com/husarion/rosbot-manipulator-colaboration/tree/master/CAD) (more less with a diameter of 35 mm), which can be also 3D printed, from starting point to the manipulator's area. Above the robotic arm there is a Realsense depth camera which detects the cartesian position of objects and their height. The manipulator picks up the yellow elements one by one putting them on top of each other in a safe place called storage. Then, the empty ROSbot returns to its starting point and waits for new objects to be reloaded in order to start a new sequence.
 
 The final effect of this project can be seen in the video below:
 
-<YouTube videoId="ln8KBR5Wjo4" opts={opts} />
+https://www.youtube.com/watch?v=ln8KBR5Wjo4 
 
 ### Features and capabilities
 * Whole system is Docker-based 
@@ -286,7 +255,7 @@ docker compose -f compose.rosbot.control.yaml -f compose.rosbot.hardware.yaml -f
 
 Now, using `Publish Point` on Rviz chose the starting point and the destination point on the loaded map. Everything should look like in previously linked video (go to 4:30):
 
-<YouTube videoId="ln8KBR5Wjo4" opts={opts} />
+https://www.youtube.com/watch?v=ln8KBR5Wjo4&t=270s
 
 ## Possible issues
 
