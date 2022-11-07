@@ -22,9 +22,9 @@ export const opts = {
 };
 
 ## Abstract
-In most of industrial cases, application of mobile and manipulation robots significantly speeds up and improves a given process.
-Sometimes a combination of the advantages of transport robots and robotic arms is needed to acheive a given goal.
-This project, based on ROS2, shows an example of cooperation between the ROSbot 2.0 PRO mobile robot and a stationary stand copmosed of the OpenMANIPULATOR-X robotic arm and the Intel Realsense D435 depth camera. The software layer cosists of 3 Python nodes (`/grabber_from_image_cords`, `/tracker` and `/rosbot_control`), which are discribed in [ROS Description](https://github.com/husarion/rosbot-manipulator-colaboration#ros-description) section. 
+In most industrial cases, application of mobile and manipulation robots significantly speeds up and improves a given process.
+Sometimes a combination of the advantages of transport robots and robotic arms is needed to achieve a given goal.
+This project, based on ROS2, shows an example of cooperation between the ROSbot 2.0 PRO mobile robot and a stationary stand composed of the OpenMANIPULATOR-X robotic arm and the Intel Realsense D435 depth camera. The software layer consists of 3 Python nodes (`/grabber_from_image_cords`, `/tracker` and `/rosbot_control`), which are described in [ROS Description](https://github.com/husarion/rosbot-manipulator-colaboration#ros-description) section. 
 
 ![rosbot_with_plate](rosbot_with_plate.jpg)
 
@@ -38,7 +38,7 @@ The full source code is here:
 
 ## Description
 As said in the abstract above, this project is an application based on the cooperation of [ROSbot 2.0 PRO](https://store.husarion.com/products/rosbot-pro), [OpenMANIPULATOR-X](https://emanual.robotis.com/docs/en/platform/openmanipulator_x/overview/) and [Intel Realsense D435](https://www.intelrealsense.com/depth-camera-d435/).
-ROSbot with a custom 3D printed [plate](https://github.com/husarion/rosbot-manipulator-colaboration/tree/master/CAD) transports [yellow cylinders](https://github.com/husarion/rosbot-manipulator-colaboration/tree/master/CAD) (more less with a diameter of 35 mm), which can be also 3D printed, from starting point to the manipulator's area. Above the robotic arm there is a Realsense depth camera which detects the cartesian position of objects and their height. The manipulator picks up the yellow elements one by one putting them on top of each other in a safe place called storage. Then, the empty ROSbot returns to its starting point and waits for new objects to be reloaded in order to start new sequence.
+ROSbot with a custom 3D printed [plate](https://github.com/husarion/rosbot-manipulator-colaboration/tree/master/CAD) transports [yellow cylinders](https://github.com/husarion/rosbot-manipulator-colaboration/tree/master/CAD) (more less with a diameter of 35 mm), which can be also 3D printed, from starting point to the manipulator's area. Above the robotic arm there is a Realsense depth camera which detects the cartesian position of objects and their height. The manipulator picks up the yellow elements one by one putting them on top of each other in a safe place called storage. Then, the empty ROSbot returns to its starting point and waits for new objects to be reloaded in order to start a new sequence.
 
 The final effect of this project can be seen in the video below:
 
@@ -51,8 +51,8 @@ The final effect of this project can be seen in the video below:
 -->
 
 ### Features and capabilities
-* Whole system is Docker based 
-* PC / laptop, manipualtor and camera communicate with the ROSbot in a Local Area Network (LAN) being in the same Wi-Fi network
+* Whole system is Docker-based 
+* PC / laptop, manipulator and camera communicate with the ROSbot in a Local Area Network (LAN) being in the same Wi-Fi network
 * The project is based on autonomous mapping and navigation with ROSbot [Navigation2](https://navigation.ros.org/) and [Slam Toolbox](http://wiki.ros.org/slam_toolbox) in Docker
 * Application launches Rviz2 software, which shows the visualization of the ROSbot's movement in the room
 * Rviz2 also shows images from the camera: color image, depth image and markers on detected objects
@@ -61,8 +61,8 @@ The final effect of this project can be seen in the video below:
 
 ### Dealing with parallax error
 
-The camera image is a flat representation of the three-dimensional world. The position of an object in space (the posion of its base on the ground) is obtained from the position of its upper surface seen on the image. However, the further away the object is from the center of the image, the more visible it will be from the side. Due to the different height of the objects, its top will no longer reflect the position of its base.
-In science, this effect has been called "parallax error" and its presense is often marked when reading measurements from analog pointer meters. To compensate it, it is enough to look at the meter directly from above.
+The camera image is a flat representation of the three-dimensional world. The position of an object in space (the position of its base on the ground) is obtained from the position of its upper surface seen on the image. However, the further away the object is from the center of the image, the more visible it will be from the side. Due to the different height of the objects, its top will no longer reflect the position of its base.
+In science, this effect has been called "parallax error" and its presence is often marked when reading measurements from analog pointer meters. To compensate it, it is enough to look at the meter directly from above.
 In the case of this project, the camera is stationary, so a math workaround should be used. Knowing the height (h) of the objects and its distance from the center of the image in XY space (R), you can easily calculate (&delta;) its real position, getting rid of the parallax error:
 
 ![parallax](parallax_error.png)
@@ -95,7 +95,7 @@ System schematic diagram:
 
 ### 1. Hardware setup
 
-Setup the hardware for example like on photo below. First, set up the tripod (or other similar equipment) with the depth camera pointing directly downwards. Then place the manipulator on a stable base on the ground. It is VERY IMPORTANT that the origin of the manipulator's coordinate system (middle of base of the first servo, [the first TF from the ground](https://emanual.robotis.com/assets/images/platform/openmanipulator_x/OpenManipulator_rviz.png)) is in the middle of the uppor border of the color image from the camera. It must be manually precisely set at a later stage of the project, immediately when the color image is displayed.
+Setup the hardware for example like on photo below. First, set up the tripod (or other similar equipment) with the depth camera pointing directly downwards. Then place the manipulator on a stable base on the ground. It is VERY IMPORTANT that the origin of the manipulator's coordinate system (middle of base of the first servo, [the first TF from the ground](https://emanual.robotis.com/assets/images/platform/openmanipulator_x/OpenManipulator_rviz.png)) is in the middle of the upper border of the color image from the camera. It must be manually precisely set at a later stage of the project, immediately when the color image is displayed.
 
 ![setup1](setup1.jpg)
 ![setup2](setup2.jpg)
@@ -133,7 +133,7 @@ Make sure you have [Docker and Docker-Compose](https://docs.docker.com/desktop/i
 > ```
 
 ### 3. Connecting to ROSbot via ssh
-ROSbot is basically a computer running Ubuntu, so plug in a display with HDMI, mause and keyboard into USB port in the rear panel of ROSbot. Proceed step by step with [Connecting ROSbot to your Wi-Fi network](https://husarion.com/manuals/rosbot/#connect-rosbot-to-your-wi-fi-network).
+ROSbot is basically a computer running Ubuntu, so plug in a display with HDMI, mouse and keyboard into the USB port in the rear panel of ROSbot. Proceed step by step with [Connecting ROSbot to your Wi-Fi network](https://husarion.com/manuals/rosbot/#connect-rosbot-to-your-wi-fi-network).
 For example:
 ```bash
 ssh husarion@192.168.8.191
@@ -143,7 +143,7 @@ ssh husarion@192.168.8.191
 
 ##### Both on PC and on ROSbot:
 
-Create new foler and clone this repository:
+Create new folder and clone this repository:
 ```bash
 mkdir rosbot_manipulator_colaboration
 git clone https://github.com/husarion/rosbot-manipulator-colaboration.git rosbot_manipulator_colaboration
@@ -152,7 +152,7 @@ git clone https://github.com/husarion/rosbot-manipulator-colaboration.git rosbot
 ### 5. Hardcoded variables
 
 > **Warning**
-> To make project work properly, measure the vertical distance between the camera and the ground using for example the tape measure. The measured value in milimeters should be writeen into line 25 of:
+> To make the project work properly, measure the vertical distance between the camera and the ground using for example the tape measure. The measured value in millimeters should be written into line 25 of:
 > 
 > `ros2_ws/src/open_cv_pkg/open_cv_pkg/tracker.py`
 > ```ruby 
@@ -166,7 +166,7 @@ git clone https://github.com/husarion/rosbot-manipulator-colaboration.git rosbot
 > 26      self.H_ = 0.70      # [m] hardcoded height of Realsense above the ground
 > ```
 > 
-> Then measure the width of the field of view of the camera measured on the ground. Tha measured value in milimeters should be written into line 28 of:
+> Then measure the width of the field of view of the camera measured on the ground. The measured value in millimeters should be written into line 28 of:
 > 
 > `ros2_ws/src/open_manip/open_manip/grabber_from_image_cords.py`
 > ```ruby
@@ -175,7 +175,7 @@ git clone https://github.com/husarion/rosbot-manipulator-colaboration.git rosbot
 
 ### 6. Preparing .env file
 
-Navigate to `rosbot_manipulator_colaboration/docker_stuff_rosbot/` folder and open `.env` file with a favourite editor.
+Navigate to `rosbot_manipulator_colaboration/docker_stuff_rosbot/` folder and open `.env` file with a favorite editor.
 
 For example:
 ```bash
@@ -249,7 +249,7 @@ Then navigate to `rosbot_manipulator_colaboration/docker_stuff_rosbot` folder an
 Your map is now saved in the 'maps/' folder!
 
 Now transfer the maps folder to your laptop using for example [sftp](https://linuxize.com/post/how-to-use-linux-sftp-command-to-transfer-files/).
-Open a new terminal and exetute (with your IP adress):
+Open a new terminal and execute (with your IP address):
 ```bash
 sftp husarion@192.168.8.191
 ```
@@ -272,7 +272,7 @@ docker container prune
 
 ## Launching the main project
 
-The main part of this project bases on the map just created and the localization [AMCL](https://navigation.ros.org/configuration/packages/configuring-amcl.html) tool.
+The main part of this project is based on the map just created and the localization [AMCL](https://navigation.ros.org/configuration/packages/configuring-amcl.html) tool.
 
 ##### Set your ROSbot on the starting point and put objects on its plate. 
 
@@ -304,21 +304,21 @@ Now, using `Publish Point` on Rviz chose the starting point and the destination 
 
 ### 1. No image from Realsense camera
 
-Every time you stop and rester the project first you need to unplug and plug USB cable of Realsense.
+Every time you stop and restart the project first you need to unplug and plug the USB cable of Realsense.
 
 ### 2. Manipulator doesn't move (controller container exits with error code)
 
-This may be coused by the wrong boudrate of the DYNAMIXEL servos.
+This may be caused by the wrong boudrate of the DYNAMIXEL servos.
 
 There are two ways to solve this problem:
 
-##### 1. Writing boudrate directly to your DYNAMIXEL servos
+##### 1. Writing Boud Rate directly to your DYNAMIXEL servos
 - Download the [DYNAMIXEL Wizard 2.0](https://emanual.robotis.com/docs/en/software/dynamixel/dynamixel_wizard2/) software and open it.
 - Connect the USB cable of the OpenMANIPULATOR-X to your laptop/PC.
 - Scan for the servos
-- Change their [boudrate setting in the EEPROM Area](https://emanual.robotis.com/docs/en/dxl/x/xm430-w350/#baud-rate8) to value `2: 115200 [bps]`
-##### 2. Modify boudrate value in compose file to default and hope for the best
-Assuming no one has made changes to your servos before, their boudrate is set to the default (57600 [bps]).
+- Change their [Boud Rate setting in the EEPROM Area](https://emanual.robotis.com/docs/en/dxl/x/xm430-w350/#baud-rate8) to value `2: 115200 [bps]`
+##### 2. Modify Boud Rate value in compose file to default and hope for the best
+Assuming no one has made changes to your servos before, their Boud Rate is set to the default (57600 [bps]).
 Modify the line 17 of the `rosbot_manipulator_colaboration/docker_stuff/compose.main.yaml` file:
 
 From:
@@ -332,7 +332,7 @@ To:
 
 ### 3. Manipulator doesn't move (controller container runs properly)
 
-There are [some positions](https://github.com/ROBOTIS-GIT/open_manipulator/pull/46) of robotic arm which exceed its joint's limits.
+There are [some positions](https://github.com/ROBOTIS-GIT/open_manipulator/pull/46) of the robotic arm which exceed its joint's limits.
 Try to launch project with the initial pose like this:
 
 ![manip_initial_pose_example](manip_initial_pose_example.jpg)
