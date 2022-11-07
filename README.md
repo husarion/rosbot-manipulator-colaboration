@@ -44,12 +44,6 @@ The final effect of this project can be seen in the video below:
 
 <YouTube videoId="ln8KBR5Wjo4" opts={opts} />
 
-<!---
-<div align="center">
-<iframe width="1920" height="1080" src="https://www.youtube.com/watch?v=ln8KBR5Wjo4" frameborder="0" gesture="media" allowfullscreen></iframe>
-</div>
--->
-
 ### Features and capabilities
 * Whole system is Docker-based 
 * PC / laptop, manipulator and camera communicate with the ROSbot in a Local Area Network (LAN) being in the same Wi-Fi network
@@ -290,15 +284,9 @@ Navigate to `rosbot_manipulator_colaboration/docker_stuff_rosbot/` folder and ex
 docker compose -f compose.rosbot.control.yaml -f compose.rosbot.hardware.yaml -f compose.rosbot.localization.yaml -f compose.rosbot.lan.yaml up
 ```
 
-Now, using `Publish Point` on Rviz chose the starting point and the destination point on the loaded map. Everything should look like in previously linked video:
+Now, using `Publish Point` on Rviz chose the starting point and the destination point on the loaded map. Everything should look like in previously linked video (go to 4:30):
 
-<YouTube videoId="ln8KBR5Wjo4&t=270s" opts={opts} />
-
-<!---
-<div align="center">
-<iframe width="???" height="???" src="https://www.youtube.com/watch?v=ln8KBR5Wjo4&t=270s" frameborder="0" gesture="media" allowfullscreen></iframe>
-</div>
--->
+<YouTube videoId="ln8KBR5Wjo4" opts={opts} />
 
 ## Possible issues
 
