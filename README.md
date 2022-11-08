@@ -1,13 +1,13 @@
 ## Abstract
 In most industrial cases, application of mobile and manipulation robots significantly speeds up and improves a given process.
 Sometimes a combination of the advantages of transport robots and robotic arms is needed to achieve a given goal.
-This project, based on ROS2, shows an example of cooperation between the ROSbot 2.0 PRO mobile robot and a stationary stand composed of the OpenMANIPULATOR-X robotic arm and the Intel Realsense D435 depth camera. The software layer consists of 3 Python nodes (`/grabber_from_image_cords`, `/tracker` and `/rosbot_control`), which are described in [ROS Description](https://github.com/husarion/rosbot-manipulator-colaboration#ros-description) section. 
+This project, based on ROS2, shows an example of cooperation between the ROSbot 2.0 PRO mobile robot and a stationary stand composed of the OpenMANIPULATOR-X robotic arm and the Intel Realsense D435 depth camera. The software layer consists of 3 Python nodes (`/grabber_from_image_cords`, `/tracker` and `/rosbot_control`), which are described in [ROS Description](https://github.com/husarion/rosbot-manipulator-collaboration#ros-description) section. 
 
 ![rosbot_with_plate](rosbot_with_plate.jpg)
 
 ## Description
 As said in the abstract above, this project is an application based on the cooperation of [ROSbot 2.0 PRO](https://store.husarion.com/products/rosbot-pro), [OpenMANIPULATOR-X](https://emanual.robotis.com/docs/en/platform/openmanipulator_x/overview/) and [Intel Realsense D435](https://www.intelrealsense.com/depth-camera-d435/).
-ROSbot with a custom 3D printed [plate](https://github.com/husarion/rosbot-manipulator-colaboration/tree/master/CAD) transports [yellow cylinders](https://github.com/husarion/rosbot-manipulator-colaboration/tree/master/CAD) (more less with a diameter of 35 mm), which can be also 3D printed, from starting point to the manipulator's area. Above the robotic arm there is a Realsense depth camera which detects the cartesian position of objects and their height. The manipulator picks up the yellow elements one by one putting them on top of each other in a safe place called storage. Then, the empty ROSbot returns to its starting point and waits for new objects to be reloaded in order to start a new sequence.
+ROSbot with a custom 3D printed [plate](https://github.com/husarion/rosbot-manipulator-collaboration/tree/master/CAD) transports [yellow cylinders](https://github.com/husarion/rosbot-manipulator-collaboration/tree/master/CAD) (more less with a diameter of 35 mm), which can be also 3D printed, from starting point to the manipulator's area. Above the robotic arm there is a Realsense depth camera which detects the cartesian position of objects and their height. The manipulator picks up the yellow elements one by one putting them on top of each other in a safe place called storage. Then, the empty ROSbot returns to its starting point and waits for new objects to be reloaded in order to start a new sequence.
 
 The final effect of this project can be seen in the video below:
 
@@ -108,8 +108,8 @@ ssh husarion@192.168.8.191
 
 Create new folder and clone this repository:
 ```bash
-mkdir rosbot_manipulator_colaboration
-git clone https://github.com/husarion/rosbot-manipulator-colaboration.git rosbot_manipulator_colaboration
+mkdir rosbot_manipulator_collaboration
+git clone https://github.com/husarion/rosbot-manipulator-collaboration.git rosbot_manipulator_collaboration
 ```
 
 ### 5. Hardcoded variables
@@ -138,20 +138,20 @@ git clone https://github.com/husarion/rosbot-manipulator-colaboration.git rosbot
 
 ### 6. Preparing .env file
 
-Navigate to `rosbot_manipulator_colaboration/docker_stuff_rosbot/` folder and open `.env` file with a favorite editor.
+Navigate to `rosbot_manipulator_collaboration/docker_stuff_rosbot/` folder and open `.env` file with a favorite editor.
 
 For example:
 ```bash
 nano .env
 ```
 Modify its content:
-- set your own `ROS_DOMAIN_ID` (if modified, write the same in `rosbot_manipulator_colaboration/docker_stuff/.env`)
+- set your own `ROS_DOMAIN_ID` (if modified, write the same in `rosbot_manipulator_collaboration/docker_stuff/.env`)
 - set `SERIAL_PORT` depending on what ROSbot you are using
 - set `RPLIDAR_BAUDRATE` depending on what RPlidar you are using
 
 ### 7. Flash the microcontroller 
 
-To flash the right firmware, open ROSbot's terminal (e.g. [via ssh](https://github.com/husarion/rosbot-manipulator-colaboration#3-connecting-to-rosbot-via-ssh)) and execute this command:
+To flash the right firmware, open ROSbot's terminal (e.g. [via ssh](https://github.com/husarion/rosbot-manipulator-collaboration#3-connecting-to-rosbot-via-ssh)) and execute this command:
    
 - for differential drive (regular wheels):
    
@@ -171,7 +171,7 @@ husarion/rosbot:noetic \
 ---
 
 
-#### This project is divided into 2 stages: [mapping](https://github.com/husarion/rosbot-manipulator-colaboration#mapping) and [launching the main project](https://github.com/husarion/rosbot-manipulator-colaboration#launching-the-main-project).
+#### This project is divided into 2 stages: [mapping](https://github.com/husarion/rosbot-manipulator-collaboration#mapping) and [launching the main project](https://github.com/husarion/rosbot-manipulator-collaboration#launching-the-main-project).
 
 ## Mapping
 
@@ -180,14 +180,14 @@ All you need to do is place robot on starting point and:
 
 :computer: on PC / laptop:
 
-Navigate to `rosbot_manipulator_colaboration/docker_stuff/` folder and execute:
+Navigate to `rosbot_manipulator_collaboration/docker_stuff/` folder and execute:
 ```bash
 xhost local:root
 docker compose -f compose.rviz.mapping.yaml -f compose.rviz.lan.yaml up
 ```
 :robot: on ROSbot:
 
-Navigate to `rosbot_manipulator_colaboration/docker_stuff_rosbot/` folder and execute:
+Navigate to `rosbot_manipulator_collaboration/docker_stuff_rosbot/` folder and execute:
 ```bash
 docker compose -f compose.rosbot.hardware.yaml -f compose.rosbot.mapping.yaml -f compose.rosbot.lan.yaml up
 ```
@@ -200,12 +200,12 @@ docker compose -f compose.rosbot.hardware.yaml -f compose.rosbot.mapping.yaml -f
 > ```
 
 Navigate in your room using `2D Goal Pose` on Rviz.
-When map is finished open new terminal and again connect to ROSBot via ssh [like previously](https://github.com/husarion/rosbot-manipulator-colaboration#3-connecting-to-rosbot-via-ssh).
+When map is finished open new terminal and again connect to ROSBot via ssh [like previously](https://github.com/husarion/rosbot-manipulator-collaboration#3-connecting-to-rosbot-via-ssh).
 For example:
 ```bash
 ssh husarion@192.168.8.191
 ```
-Then navigate to `rosbot_manipulator_colaboration/docker_stuff_rosbot` folder and execute on ROSbot:
+Then navigate to `rosbot_manipulator_collaboration/docker_stuff_rosbot` folder and execute on ROSbot:
 ```bash
 ./map-save.sh
 ```
@@ -218,8 +218,8 @@ sftp husarion@192.168.8.191
 ```
 Then execute:
 ```bash
-cd rosbot_manipulator_colaboration/docker_stuff_rosbot/
-lcd rosbot_manipulator_colaboration/docker_stuff_rosbot/
+cd rosbot_manipulator_collaboration/docker_stuff_rosbot/
+lcd rosbot_manipulator_collaboration/docker_stuff_rosbot/
 get -r maps/
 ```
 
@@ -241,14 +241,14 @@ The main part of this project is based on the map just created and the localizat
 
 :computer: on PC / laptop:
 
-Navigate to `rosbot_manipulator_colaboration/docker_stuff/` folder and execute:
+Navigate to `rosbot_manipulator_collaboration/docker_stuff/` folder and execute:
 ```bash
 xhost local:root
 docker compose -f compose.main.yaml -f compose.rviz.localization.yaml -f compose.rviz.lan.yaml up
 ```
 :robot: on ROSbot:
 
-Navigate to `rosbot_manipulator_colaboration/docker_stuff_rosbot/` folder and execute:
+Navigate to `rosbot_manipulator_collaboration/docker_stuff_rosbot/` folder and execute:
 ```bash
 docker compose -f compose.rosbot.control.yaml -f compose.rosbot.hardware.yaml -f compose.rosbot.localization.yaml -f compose.rosbot.lan.yaml up
 ```
@@ -276,7 +276,7 @@ There are two ways to solve this problem:
 - Change their [Boud Rate setting in the EEPROM Area](https://emanual.robotis.com/docs/en/dxl/x/xm430-w350/#baud-rate8) to value `2: 115200 [bps]`
 ##### 2. Modify Boud Rate value in compose file to default and hope for the best
 Assuming no one has made changes to your servos before, their Boud Rate is set to the default (57600 [bps]).
-Modify the line 17 of the `rosbot_manipulator_colaboration/docker_stuff/compose.main.yaml` file:
+Modify the line 17 of the `rosbot_manipulator_collaboration/docker_stuff/compose.main.yaml` file:
 
 From:
 ```ruby
